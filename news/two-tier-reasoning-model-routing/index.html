@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two-Tier Model Routing: Pairing Reasoning Models with Fast Small Models — Scalar Teams AI Briefing</title>
+<meta name="description" content="How production AI engineering teams combine frontier reasoning models with low-latency flash/mini models and prompt caching to cut inference costs by 60–80% while maintaining sub-second UX.">
+<link rel="canonical" href="https://scalarteams.com/news/two-tier-reasoning-model-routing/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Scalar Teams">
+<meta property="og:url" content="https://scalarteams.com/news/two-tier-reasoning-model-routing/">
+<meta property="og:title" content="Two-Tier Model Routing: Pairing Reasoning Models with Fast Small Models — Scalar Teams">
+<meta property="og:description" content="How production AI engineering teams combine frontier reasoning models with low-latency flash/mini models and prompt caching to cut inference costs by 60–80% while maintaining sub-second UX.">
+<meta property="og:image" content="https://scalarteams.com/images/news/model-routing-benchmarks.jpg">
+<meta name="theme-color" content="#0B1626">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Two-Tier Model Routing: Pairing Reasoning Models with Fast Small Models",
+  "description": "How production AI engineering teams combine frontier reasoning models with low-latency flash/mini models and prompt caching to cut inference costs by 60\u201380% while maintaining sub-second UX.",
+  "image": "https://scalarteams.com/images/news/model-routing-benchmarks.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "Scalar Teams",
+    "url": "https://scalarteams.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scalar Teams",
+    "url": "https://scalarteams.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://scalarteams.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://scalarteams.com/news/two-tier-reasoning-model-routing/"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Scalar Teams home">
+      <svg class="brand-mark" aria-hidden="true" width="30" height="30" viewBox="0 0 40 40">
+        <rect class="stroke-box" x="4" y="4" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="stroke-box" x="15" y="15" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="fill-box" x="15" y="15" width="10" height="10"/>
+      </svg>
+      <span class="brand-name">Scalar<span> Teams</span></span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-link" href="/finance-accounting/">Finance &amp; Accounting</a>
+      <a class="nav-link" href="/hire-ai-engineers/">AI Engineers</a>
+      <a class="nav-link" href="/news/" aria-current="page">AI Briefing</a>
+      <a class="nav-link" href="/about/">About</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle light or dark color theme">Theme</button>
+      <a class="nav-cta" href="/request-a-quote/">Request a written quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="article-wrap">
+    <a class="article-breadcrumb" href="/news/">← Back to all AI Briefings &amp; Case Studies</a>
+
+    <header class="article-header">
+      <div class="news-meta">
+        <span class="news-badge">Model Releases · Cost & Latency</span>
+        <span>Inference Architecture · 6 min read</span>
+      </div>
+      <h1>Two-Tier Model Routing: Pairing Reasoning Models with Fast Small Models</h1>
+      <p class="article-lead">Across the latest Claude, GPT, Gemini, and open-weight Qwen/Llama releases, production engineering teams have converged on a two-tier routing architecture: reserving heavy reasoning models for ambiguous multi-step synthesis and offline dataset curation, while routing 85%+ of high-throughput traffic to fast small models.</p>
+      <div class="article-source-banner">
+        <span><strong>Named Source:</strong> Simon Willison's LLM Field Notes, Applied LLMs Price-Performance Benchmarks & Frontier Model Release Documentation</span>
+        <span>Full On-Site Briefing</span>
+      </div>
+    </header>
+
+    <figure class="article-figure">
+      <img src="/images/news/model-routing-benchmarks.jpg" alt="Extracted benchmark leaderboard chart from Simon Willison's annual LLM review showing frontier and small model performance tiers" loading="eager">
+      <figcaption>Figure 1: Model capability convergence across frontier reasoning models and compact, low-latency workhorse tiers (Source: Simon Willison's LLM Review).</figcaption>
+    </figure>
+
+    <div class="article-callout">
+      <h3>Engineering & Unit-Economics Takeaway</h3>
+      <p>Running every request through a heavy reasoning model destroys gross margin and adds 8–15 seconds of latency. Senior AI engineers design explicit model routers, leverage prompt caching (up to 80% input cost reduction), and use reasoning models to distil golden examples for fast workhorse models.</p>
+    </div>
+
+    <div class="article-body">
+      
+<h2>The Two Divergent Tracks of Foundation Model Releases</h2>
+<p>As tracked closely in Simon Willison’s field notes and enterprise engineering benchmarks, foundation model releases have split into two specialized categories with radically different latency and cost profiles:</p>
+<ol>
+  <li><strong>Test-Time Compute / Reasoning Models:</strong> Models that expend internal chain-of-thought tokens before emitting a final answer. They excel at multi-constraint planning, complex code refactoring, reconciling contradictory tables across financial documents, and subtle legal/tax edge cases—but incur higher per-request cost and 5-to-20 second latencies.</li>
+  <li><strong>High-Throughput Workhorse / Flash / Mini Models:</strong> Compact frontier models and open-weight models (such as Claude Haiku, GPT-4o-mini, Gemini Flash, and Qwen/Llama derivatives) that deliver sub-second time-to-first-token at a fraction of a cent per thousand calls.</li>
+</ol>
+
+<h2>Designing a Production Two-Tier Model Router</h2>
+<p>In production software, treating model selection as a static global config variable wastes money on easy requests and under-delivers on hard ones. Senior AI engineers implement dynamic routing across three axes:</p>
+<ul>
+  <li><strong>Task-Type Routing:</strong> High-volume deterministic steps—such as intent classification, PII redaction, query expansion, and standard single-page document extraction—route directly to Tier-1 fast models. Complex multi-document synthesis or code architecture reviews route to Tier-2 frontier reasoning models.</li>
+  <li><strong>Confidence-Gated Escalation (Cascade Routing):</strong> For document extraction or accounting classification, the Tier-1 fast model processes 100% of incoming items first. Only when the Tier-1 output flags low confidence, fails a deterministic math check (e.g., invoice line items do not sum to the total), or encounters an unknown vendor layout does the pipeline escalate that specific record to the Tier-2 reasoning model.</li>
+  <li><strong>Offline Teacher → Online Student Distillation:</strong> Teams use the most capable reasoning model offline in batch mode to label 1,000 hard production traces, verify those labels with domain experts, and use the resulting golden examples as dynamically retrieved few-shot examples in the prompt of a fast Tier-1 model.</li>
+</ul>
+
+<h2>Multiplying Savings with Prompt Caching &amp; Batch APIs</h2>
+<p>Beyond model tiering, two platform primitives routinely cut enterprise LLM spend by 60–80%:</p>
+<ul>
+  <li><strong>Prompt Caching:</strong> When every API call includes a 4,000-token system prompt, 25 tool schemas, and 15 few-shot examples, structuring the prompt so static content sits at the prefix allows the provider to read directly from KV cache—slashing input token cost by 75–90% and cutting time-to-first-token in half.</li>
+  <li><strong>Asynchronous Batch APIs:</strong> Non-interactive workloads—such as overnight regression evals, historical document backfills, and contextual RAG chunk indexing—run via asynchronous batch endpoints at a 50% discount without consuming real-time rate limits.</li>
+</ul>
+
+      
+      <figure class="article-figure">
+        <img src="/images/news/applied-llms-prices.png" alt="Extracted chart from Applied LLMs showing the rapid collapse in per-token inference cost for equivalent model capability over time" loading="lazy">
+        <figcaption>Figure 2: The rapid drop in inference cost per million tokens for equivalent benchmark performance enables high-volume operational automation (Source: Applied LLMs Consortium).</figcaption>
+      </figure>
+    </div>
+
+    <aside class="article-source-box" aria-label="Source attribution">
+      <h3>Source Attribution &amp; Editorial Note</h3>
+      <p><strong>Primary Source Cited:</strong> Simon Willison's LLM Field Notes, Applied LLMs Price-Performance Benchmarks & Frontier Model Release Documentation. This technical briefing is prepared and hosted in full by Scalar Teams for finance, supply-chain, and engineering leaders evaluating practical AI implementation and team staffing.</p>
+    </aside>
+
+    <div class="card" style="margin-top: 36px;">
+      <p class="eyebrow">Need Vetted Talent to Execute?</p>
+      <h2 style="font-size: 24px; margin-bottom: 10px;">Hire senior talent in Latin America and Canada—employed through our Ecuador EOR office.</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 20px;">Whether you need a senior AI engineer who builds production RAG and evaluation pipelines, or a bilingual accountant and logistics coordinator who understands three-way matching and freight operations, send us your role brief for a written quote by email.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/request-a-quote/">Request a written quote</a>
+        <a class="btn btn-secondary" href="/hire-ai-engineers/">Hire Senior AI Engineers</a>
+        <a class="btn btn-secondary" href="/news/">Browse all 12 AI Briefings</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="brand-mark" aria-hidden="true" width="22" height="22" viewBox="0 0 40 40">
+        <rect class="stroke-box" x="4" y="4" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="stroke-box" x="15" y="15" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="fill-box" x="15" y="15" width="10" height="10"/>
+      </svg>
+      <span>© 2026 Scalar Teams · British Columbia, Canada &amp; Ecuador · Billed monthly in advance in USD</span>
+    </div>
+    <ul class="footer-links" aria-label="Footer navigation">
+      <li><a href="/">Home</a></li>
+      <li><a href="/finance-accounting/">Finance &amp; Accounting</a></li>
+      <li><a href="/hire-ai-engineers/">Senior AI Engineers</a></li>
+      <li><a href="/news/">AI Briefing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/request-a-quote/">Request a Quote</a></li>
+      <li><a href="mailto:hello@scalarteams.com">hello@scalarteams.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vision-LLM Extraction for Multi-Page Vendor Invoices and Three-Way PO Matching — Scalar Teams AI Briefing</title>
+<meta name="description" content="How distribution and wholesale controllers use vision-enabled LLMs with NetSuite and QuickBooks to automate invoice line-item capture and three-way matching while maintaining strict internal controls.">
+<link rel="canonical" href="https://scalarteams.com/news/vision-llm-ap-three-way-matching/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Scalar Teams">
+<meta property="og:url" content="https://scalarteams.com/news/vision-llm-ap-three-way-matching/">
+<meta property="og:title" content="Vision-LLM Extraction for Multi-Page Vendor Invoices and Three-Way PO Matching — Scalar Teams">
+<meta property="og:description" content="How distribution and wholesale controllers use vision-enabled LLMs with NetSuite and QuickBooks to automate invoice line-item capture and three-way matching while maintaining strict internal controls.">
+<meta property="og:image" content="https://scalarteams.com/images/news/ap-three-way-match.svg">
+<meta name="theme-color" content="#0B1626">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Vision-LLM Extraction for Multi-Page Vendor Invoices and Three-Way PO Matching",
+  "description": "How distribution and wholesale controllers use vision-enabled LLMs with NetSuite and QuickBooks to automate invoice line-item capture and three-way matching while maintaining strict internal controls.",
+  "image": "https://scalarteams.com/images/news/ap-three-way-match.svg",
+  "author": {
+    "@type": "Organization",
+    "name": "Scalar Teams",
+    "url": "https://scalarteams.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scalar Teams",
+    "url": "https://scalarteams.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://scalarteams.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://scalarteams.com/news/vision-llm-ap-three-way-matching/"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Scalar Teams home">
+      <svg class="brand-mark" aria-hidden="true" width="30" height="30" viewBox="0 0 40 40">
+        <rect class="stroke-box" x="4" y="4" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="stroke-box" x="15" y="15" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="fill-box" x="15" y="15" width="10" height="10"/>
+      </svg>
+      <span class="brand-name">Scalar<span> Teams</span></span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-link" href="/finance-accounting/">Finance &amp; Accounting</a>
+      <a class="nav-link" href="/hire-ai-engineers/">AI Engineers</a>
+      <a class="nav-link" href="/news/" aria-current="page">AI Briefing</a>
+      <a class="nav-link" href="/about/">About</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle light or dark color theme">Theme</button>
+      <a class="nav-cta" href="/request-a-quote/">Request a written quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="article-wrap">
+    <a class="article-breadcrumb" href="/news/">← Back to all AI Briefings &amp; Case Studies</a>
+
+    <header class="article-header">
+      <div class="news-meta">
+        <span class="news-badge">Practical Case · Finance</span>
+        <span>AP & ERP Controls · 6 min read</span>
+      </div>
+      <h1>Vision-LLM Extraction for Multi-Page Vendor Invoices and Three-Way PO Matching</h1>
+      <p class="article-lead">Distribution, importing, and wholesale finance teams are pairing multimodal vision models with NetSuite and QuickBooks to extract line-item SKUs, unit prices, and freight surcharges from non-standard vendor PDFs—staging clean vouchers automatically while routing price or quantity variances to dedicated AP specialists.</p>
+      <div class="article-source-banner">
+        <span><strong>Named Source:</strong> Ramp Engineering Blog & Wholesale Distribution Controller Field Notes</span>
+        <span>Full On-Site Briefing</span>
+      </div>
+    </header>
+
+    <figure class="article-figure">
+      <img src="/images/news/ap-three-way-match.svg" alt="Technical diagram showing three-way reconciliation between Purchase Order, Warehouse Item Receipt, and Vision-LLM extracted Vendor Invoice in NetSuite/QuickBooks" loading="eager">
+      <figcaption>Figure 1: Three-way reconciliation architecture comparing approved ERP Purchase Orders, warehouse receiving logs, and vision-extracted vendor PDFs.</figcaption>
+    </figure>
+
+    <div class="article-callout">
+      <h3>Controller Takeaway</h3>
+      <p>Automated OCR+LLM extraction handles the first pass of voucher creation, while your dedicated AP specialist resolves the 15–20% of invoices with landed-cost discrepancies, short shipments, or damaged goods—and enforces strict bank-access separation.</p>
+    </div>
+
+    <div class="article-body">
+      
+<h2>Why Legacy OCR Templates Break in Wholesale &amp; Distribution AP</h2>
+<p>In a software company, accounts payable mostly consists of recurring SaaS subscriptions and clean service invoices. In a $10M–$150M wholesale distributor, importer, or food/beverage supplier, AP is an operational minefield. A single vendor invoice may span eight pages, contain 90 SKU line items, mix cases and catch-weight pounds, and include fuel surcharges, pallet deposits, and ocean/drayage freight allocations.</p>
+<p>Traditional zone-based OCR tools fail whenever a supplier reformats their invoice template, prints across page breaks, or includes handwritten dock adjustments on an attached delivery receipt. As a result, AP clerks end up typing line items manually into NetSuite, QuickBooks Enterprise, or Microsoft Business Central—creating a backlog that delays the month-end close and obscures real-time inventory COGS.</p>
+
+<h2>How Multimodal Vision + ERP Matching Works in Production</h2>
+<p>Modern financial automation platforms (such as Ramp’s engineering pipeline and modern ERP document ingestion layers) combine vision-language models with deterministic accounting rules:</p>
+<ol>
+  <li><strong>Multimodal Page Ingestion:</strong> Rather than relying solely on noisy OCR text strings, the vision model inspects the high-resolution page image alongside extracted text tokens—accurately reading multi-column tables, tax summaries, and handwritten receiving notes.</li>
+  <li><strong>Vendor SKU to Internal Item Master Crosswalk:</strong> Suppliers rarely use your internal ERP item numbers on their bills. The pipeline queries historical voucher mappings and semantic descriptions to translate vendor part codes into your internal NetSuite/QuickBooks Item Master IDs.</li>
+  <li><strong>Deterministic Mathematical Verification:</strong> Before any record touches the ERP, application code verifies that <code>sum(quantity × unit_price) + tax + freight == invoice_total</code> to the exact cent. If the math does not foot, the field is flagged for human inspection.</li>
+  <li><strong>Automated Three-Way Match:</strong> Each extracted invoice line is compared against (a) the original approved Purchase Order unit cost and (b) the warehouse manager’s signed Item Receipt / BOL quantity.</li>
+</ol>
+
+<h2>The 80/20 Split: Why You Still Need a Sharp AP Specialist</h2>
+<p>Even with 99% field extraction accuracy, roughly 15–20% of physical inventory invoices in distribution legitimately do not match the purchase order or receiving log:</p>
+<ul>
+  <li><strong>Short shipments &amp; backorders:</strong> The supplier billed for 100 cases, the warehouse dock only received 88 cases, and 12 cases were damaged or backordered.</li>
+  <li><strong>Unapproved vendor price creeps:</strong> A supplier raised the per-unit price by $0.45 without updating the contracted PO price table.</li>
+  <li><strong>Landed-cost freight &amp; customs allocation:</strong> Ocean freight, cold-storage drayage, and customs duties must be capitalized and allocated across received inventory lots by weight or value rather than expensed to a generic overhead account.</li>
+</ul>
+<p>When AI handles the 80% of clean, matching vouchers by staging them as draft bills in minutes, a single bilingual AP specialist can manage a much higher invoice volume while spending their time chasing vendor credit memos, reconciling monthly supplier statements, and keeping the AP aging schedule current.</p>
+
+<h2>Non-Negotiable Internal Controls &amp; Fraud Prevention</h2>
+<p>As a CPA-led firm, Scalar Teams structures AP workflows around strict segregation of duties:</p>
+<ul>
+  <li><strong>Draft-Only ERP Staging:</strong> Neither the AI pipeline nor the junior AP clerk should auto-post bills directly to the general ledger without supervisory review. Bills stage in <em>Pending Approval</em> status.</li>
+  <li><strong>Zero Unsupervised Bank Authority:</strong> AP specialists prepare payment batches and attach supporting PO/BOL packets, but check signing, ACH batch release, and wire approval remain strictly restricted to the Controller or CFO inside the bank portal.</li>
+  <li><strong>Out-of-Band Vendor Bank Verification:</strong> Any email requesting a change to a vendor’s ACH routing or wire instructions is treated as potential BEC (Business Email Compromise) fraud and requires verbal callback verification to a known phone number on file.</li>
+</ul>
+
+      
+      <figure class="article-figure">
+        <img src="/images/finance-accounting-hero.jpg" alt="Senior accountant reviewing three-way match variance reports and NetSuite general ledger entries on dual monitors" loading="lazy">
+        <figcaption>Figure 2: Dedicated AP specialists focus on resolving the 15–20% of vendor bills that trigger unit-price, short-ship, or landed-cost freight variances.</figcaption>
+      </figure>
+    </div>
+
+    <aside class="article-source-box" aria-label="Source attribution">
+      <h3>Source Attribution &amp; Editorial Note</h3>
+      <p><strong>Primary Source Cited:</strong> Ramp Engineering Blog & Wholesale Distribution Controller Field Notes. This technical briefing is prepared and hosted in full by Scalar Teams for finance, supply-chain, and engineering leaders evaluating practical AI implementation and team staffing.</p>
+    </aside>
+
+    <div class="card" style="margin-top: 36px;">
+      <p class="eyebrow">Need Vetted Talent to Execute?</p>
+      <h2 style="font-size: 24px; margin-bottom: 10px;">Hire senior talent in Latin America and Canada—employed through our Ecuador EOR office.</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 20px;">Whether you need a senior AI engineer who builds production RAG and evaluation pipelines, or a bilingual accountant and logistics coordinator who understands three-way matching and freight operations, send us your role brief for a written quote by email.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/request-a-quote/">Request a written quote</a>
+        <a class="btn btn-secondary" href="/finance-accounting/">Hire Vetted AP Specialists & Staff Accountants</a>
+        <a class="btn btn-secondary" href="/news/">Browse all 12 AI Briefings</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="brand-mark" aria-hidden="true" width="22" height="22" viewBox="0 0 40 40">
+        <rect class="stroke-box" x="4" y="4" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="stroke-box" x="15" y="15" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="fill-box" x="15" y="15" width="10" height="10"/>
+      </svg>
+      <span>© 2026 Scalar Teams · British Columbia, Canada &amp; Ecuador · Billed monthly in advance in USD</span>
+    </div>
+    <ul class="footer-links" aria-label="Footer navigation">
+      <li><a href="/">Home</a></li>
+      <li><a href="/finance-accounting/">Finance &amp; Accounting</a></li>
+      <li><a href="/hire-ai-engineers/">Senior AI Engineers</a></li>
+      <li><a href="/news/">AI Briefing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/request-a-quote/">Request a Quote</a></li>
+      <li><a href="mailto:hello@scalarteams.com">hello@scalarteams.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

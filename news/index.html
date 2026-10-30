@@ -62,7 +62,7 @@
   <section class="wrap hero">
     <p class="eyebrow">AI Intelligence &amp; Field Notes</p>
     <h1>Practical AI in business: real production cases, model releases, and engineering practices.</h1>
-    <p class="lead">We track how companies move AI out of slide decks and into daily operations—covering freight and accounting automation, production LLM engineering patterns, foundation model releases, and applied AI startups. Expand any briefing below to read the full breakdown on our site.</p>
+    <p class="lead">We track how companies move AI out of slide decks and into daily operations—covering freight and accounting automation, production LLM engineering patterns, foundation model releases, and applied AI startups. Click any briefing below to open the complete article and architectural diagrams in a new page on our site.</p>
 
     <div class="filter-bar" role="toolbar" aria-label="Filter news by category">
       <button type="button" class="filter-btn" data-news-filter="all" aria-pressed="true">All Briefings (12)</button>
@@ -77,358 +77,271 @@
       <!-- 1. Practical Case: Freight & Logistics -->
       <article id="brief-freight-triage" class="news-card" data-news-category="cases">
         <div>
+          <a class="news-card-thumb" href="/news/freight-quote-bol-triage/" target="_blank">
+            <img src="/images/news/freight-bol-pipeline.svg" alt="3PL freight quote and bill-of-lading automated triage pipeline diagram" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Practical Case · Logistics</span>
             <span>Supply Chain &amp; 3PL</span>
           </div>
-          <h3>Automated freight quote &amp; bill-of-lading triage in high-volume 3PL inboxes</h3>
+          <h3><a class="news-card-title-link" href="/news/freight-quote-bol-triage/" target="_blank">Automated freight quote &amp; bill-of-lading triage in high-volume 3PL inboxes</a></h3>
           <p>Large freight brokers and 3PLs parse unstructured shipper emails, PDF rate confirmations, and bills of lading directly into TMS fields—cutting manual quote-to-booking keying from minutes to seconds while routing exceptions to human coordinators.</p>
           <div class="news-takeaway">
             <strong>Operator takeaway:</strong> AI does not replace the logistics coordinator—it eliminates repetitive PDF data entry so bilingual coordinators can focus on carrier exceptions, cold-storage appointments, and detention disputes.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>How it works in production</h4>
-              <p>In North American freight brokerage and refrigerated distribution, thousands of spot-rate requests, carrier rate confirmations, and signed bills of lading arrive via unstructured email threads and scanned attachments. Logistics teams at major brokers (such as C.H. Robinson) deploy multimodal document pipelines that classify incoming emails, extract origin/destination ZIPs, pallet counts, temperature requirements, and accessorial charges, and validate them against customer master tables before staging a draft order in the TMS.</p>
-              <h4>Where human operators remain essential</h4>
-              <ul>
-                <li>Resolving missing receiver appointment numbers, lumper receipts, or cold-chain temperature recorder discrepancies.</li>
-                <li>Calling carriers and receivers directly when a load is delayed at customs or a cross-dock facility.</li>
-                <li>Auditing detention, demurrage, and layover claims against signed timestamps on the physical bill of lading.</li>
-              </ul>
-              <span class="source-citation">Named Source: C.H. Robinson Enterprise Freight Automation Reports &amp; Supply Chain Operations Briefings</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: C.H. Robinson &amp; 3PL Field Notes</span>
+          <a href="/news/freight-quote-bol-triage/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
       <!-- 2. Engineering Practice: Anthropic Building Effective Agents -->
       <article id="brief-effective-agents" class="news-card" data-news-category="practices">
         <div>
+          <a class="news-card-thumb" href="/news/workflows-vs-autonomous-agents/" target="_blank">
+            <img src="/images/news/effective-agents-hero.jpg" alt="Extracted cover illustration from Anthropic Engineering's Building Effective Agents guide" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Engineering Practice</span>
             <span>Architecture</span>
           </div>
-          <h3>Workflows vs. Autonomous Agents: why simple composable patterns win in production</h3>
+          <h3><a class="news-card-title-link" href="/news/workflows-vs-autonomous-agents/" target="_blank">Workflows vs. Autonomous Agents: why simple composable patterns win in production</a></h3>
           <p>Production engineering teams consistently find that successful enterprise deployments avoid heavy, opaque agent frameworks and instead build deterministic code workflows using five composable patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizers.</p>
           <div class="news-takeaway">
             <strong>CTO takeaway:</strong> When vetting senior AI engineers, test whether they reach for clean control loops and deterministic tool schemas before spinning up unconstrained multi-agent loops.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>Architectural breakdown</h4>
-              <p>Drawing a clear line between <strong>workflows</strong> (systems where LLMs and tools are orchestrated through predefined code paths) and open-ended <strong>agents</strong> (where an LLM dynamically directs its own control flow) prevents runaway token costs and compounding failure rates.</p>
-              <ul>
-                <li><strong>Prompt Chaining:</strong> Decomposing a task into sequential steps with programmatic gate checks between each call.</li>
-                <li><strong>Routing:</strong> Classifying an input first and sending it to a specialized prompt, toolset, or smaller model tier.</li>
-                <li><strong>Orchestrator-Workers:</strong> A central planner breaks down complex tasks (such as multi-file code refactors or multi-source compliance checks) and delegates to scoped worker calls.</li>
-                <li><strong>Evaluator-Optimizer:</strong> One model call generates an output while a separate rubric-based grader critiques and requests targeted revisions until quality thresholds pass.</li>
-              </ul>
-              <span class="source-citation">Named Source: Anthropic Engineering ("Building Effective Agents" Production Architecture Guide)</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: Anthropic Engineering</span>
+          <a href="/news/workflows-vs-autonomous-agents/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
       <!-- 3. Practical Case: AP & Three-Way Matching -->
       <article id="brief-ap-matching" class="news-card" data-news-category="cases">
         <div>
+          <a class="news-card-thumb" href="/news/vision-llm-ap-three-way-matching/" target="_blank">
+            <img src="/images/news/ap-three-way-match.svg" alt="Automated three-way match workflow between Purchase Order, Warehouse Receipt, and Vendor Invoice" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Practical Case · Finance</span>
             <span>AP &amp; ERP Controls</span>
           </div>
-          <h3>Vision-LLM extraction for multi-page vendor invoices and three-way PO matching</h3>
+          <h3><a class="news-card-title-link" href="/news/vision-llm-ap-three-way-matching/" target="_blank">Vision-LLM extraction for multi-page vendor invoices and three-way PO matching</a></h3>
           <p>Distribution and wholesale finance teams are pairing multimodal document models with NetSuite and QuickBooks to extract line-item SKUs, unit prices, and freight surcharges from non-standard vendor PDFs, automatically flagging price or quantity variances against warehouse receiving logs.</p>
           <div class="news-takeaway">
             <strong>Controller takeaway:</strong> Automated OCR+LLM extraction handles the first pass of voucher creation, while your AP specialist resolves the 15–20% of invoices with landed-cost discrepancies, short shipments, or damaged goods.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>How controllers deploy it safely</h4>
-              <p>Legacy OCR templates break whenever a vendor changes their invoice layout or handwrites receiving adjustments on a packing slip. Vision-enabled language models read the raw page image alongside extracted text, mapping vendor part numbers to internal ERP item masters and checking math across line items, tax, and freight.</p>
-              <h4>Internal control boundaries</h4>
-              <ul>
-                <li><strong>Draft-only ERP staging:</strong> Extracted bills are created in "Pending Approval" status inside NetSuite or QuickBooks—never auto-posted to the general ledger without review.</li>
-                <li><strong>Variance tolerances:</strong> Invoices matching PO price and warehouse receipt quantity within strict tolerance stage cleanly; any variance routes to a dedicated AP specialist queue.</li>
-                <li><strong>Vendor master lock:</strong> Bank routing and ACH changes remain locked behind multi-person controller verification to prevent payment diversion fraud.</li>
-              </ul>
-              <span class="source-citation">Named Source: Ramp Engineering Blog &amp; Wholesale Distribution Controller Field Notes</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: Ramp Engineering &amp; AP Benchmarks</span>
+          <a href="/news/vision-llm-ap-three-way-matching/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
       <!-- 4. Engineering Practice: Contextual Retrieval -->
       <article id="brief-contextual-rag" class="news-card" data-news-category="practices">
         <div>
+          <a class="news-card-thumb" href="/news/contextual-retrieval-hybrid-rag/" target="_blank">
+            <img src="/images/news/contextual-retrieval-diagram.png" alt="Extracted Contextual Retrieval architecture diagram combining Contextual Embeddings, BM25, and Reranking" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Engineering Practice</span>
             <span>RAG &amp; Search</span>
           </div>
-          <h3>Contextual Retrieval + BM25 + Reranking cuts RAG retrieval failures by 67%</h3>
+          <h3><a class="news-card-title-link" href="/news/contextual-retrieval-hybrid-rag/" target="_blank">Contextual Retrieval + BM25 + Reranking cuts RAG retrieval failures by 67%</a></h3>
           <p>Naive vector chunking strips crucial context from financial tables, contracts, and technical docs (e.g., losing which vendor or quarter a paragraph refers to). Prepending chunk-specific context at indexing time and combining dense embeddings with BM25 lexical search and a cross-encoder reranker dramatically improves accuracy.</p>
           <div class="news-takeaway">
             <strong>CTO takeaway:</strong> This is a core production test we run with AI engineering candidates—diagnosing retrieval misses when user queries include exact SKU codes, part numbers, or legal clauses.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>Why standard vector RAG fails on enterprise data</h4>
-              <p>When a 50-page supplier agreement or financial filing is split into 500-token chunks, an individual chunk often reads: <em>"Payment terms are Net 15 with a 2% early discount."</em> Without knowing which supplier, subsidiary, or effective date that chunk belongs to, vector similarity retrieves the wrong contract in production.</p>
-              <h4>The 3-part production fix</h4>
-              <ul>
-                <li><strong>Contextual chunk headers:</strong> Use a fast, prompt-cached model during ingestion to prepend a 50-token document summary (company, document type, date, section) to every chunk before embedding.</li>
-                <li><strong>Hybrid BM25 + Vector Search:</strong> Combine semantic embeddings with exact keyword (BM25) matching so SKU numbers, invoice IDs, and error codes never get lost.</li>
-                <li><strong>Cross-Encoder Reranking:</strong> Score the top 100 candidate chunks down to the top 10–15 most relevant passages before passing them to the generation prompt.</li>
-              </ul>
-              <span class="source-citation">Named Source: Anthropic Research &amp; Engineering ("Introducing Contextual Retrieval")</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: Anthropic Research</span>
+          <a href="/news/contextual-retrieval-hybrid-rag/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
       <!-- 5. Model Release: Schema-Enforced Structured Outputs -->
       <article id="brief-structured-outputs" class="news-card" data-news-category="models">
         <div>
+          <a class="news-card-thumb" href="/news/schema-enforced-structured-outputs/" target="_blank">
+            <img src="/images/news/structured-outputs-cfg.svg" alt="Context-free grammar constrained decoding architecture diagram" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Model Capability</span>
             <span>Production APIs</span>
           </div>
-          <h3>Constrained decoding and 100% JSON-Schema compliance in frontier models</h3>
+          <h3><a class="news-card-title-link" href="/news/schema-enforced-structured-outputs/" target="_blank">Constrained decoding and 100% JSON-Schema compliance in frontier models</a></h3>
           <p>Modern frontier APIs from OpenAI, Anthropic, and Google now enforce strict context-free grammars during token sampling, guaranteeing that model outputs match Pydantic or Zod schemas without malformed JSON, missing required keys, or hallucinated enum values.</p>
           <div class="news-takeaway">
             <strong>Engineering takeaway:</strong> Enables reliable integration between probabilistic LLMs and strict ERP/SQL backends—essential for automated ledger coding, customs tariff classification, and tool calling.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>From brittle regex parsing to grammar-constrained sampling</h4>
-              <p>Previously, engineering teams had to wrap LLM calls in retry loops whenever a model omitted a required JSON field or invented an invalid category name. With constrained decoding, the inference engine converts your JSON Schema into a context-free grammar and masks out any token that would violate the schema during generation.</p>
-              <h4>Production practices still required</h4>
-              <ul>
-                <li><strong>Semantic validation vs. syntactic validity:</strong> Constrained decoding guarantees valid types and enums, but engineers still must validate business logic (e.g., ensuring line items sum to the invoice total).</li>
-                <li><strong>Explicit refusal &amp; uncertainty fields:</strong> Include nullable confidence or `needs_human_review` fields in your schema so the model isn't forced to guess when source data is illegible.</li>
-              </ul>
-              <span class="source-citation">Named Source: OpenAI Platform Engineering ("Structured Outputs in the API") &amp; Anthropic Tool Use Documentation</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: OpenAI Platform &amp; Anthropic Docs</span>
+          <a href="/news/schema-enforced-structured-outputs/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
       <!-- 6. Startups & Tooling: Eval & Observability Stack -->
       <article id="brief-eval-harnesses" class="news-card" data-news-category="startups">
         <div>
+          <a class="news-card-thumb" href="/news/cicd-llm-evaluation-harnesses/" target="_blank">
+            <img src="/images/news/eval-harnesses-hero.jpg" alt="Extracted screenshot of Promptfoo evaluation matrix comparing prompts and assertions" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Startups &amp; Tooling</span>
             <span>LLM Ops &amp; Evals</span>
           </div>
-          <h3>The rise of CI/CD evaluation harnesses: Braintrust, LangSmith, Arize Phoenix &amp; Promptfoo</h3>
+          <h3><a class="news-card-title-link" href="/news/cicd-llm-evaluation-harnesses/" target="_blank">The rise of CI/CD evaluation harnesses: Braintrust, LangSmith, Arize Phoenix &amp; Promptfoo</a></h3>
           <p>A new tier of developer tooling startups has replaced "vibe-check" prompt tweaking with automated regression suites. Engineering teams now gate pull requests on golden dataset scores—measuring faithfulness, latency p95, token cost per run, and tool-call precision before deploying model updates.</p>
           <div class="news-takeaway">
             <strong>CTO takeaway:</strong> Every senior AI engineer should know how to build an offline eval dataset from production traces and run deterministic + LLM-as-a-judge graders in CI.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>How high-performing teams structure LLM evals</h4>
-              <p>Without automated evaluations, every prompt edit or model version upgrade risks silently breaking edge cases that worked last month. Modern AI engineering teams treat evaluation datasets like unit and integration tests:</p>
-              <ul>
-                <li><strong>Curated Golden Datasets:</strong> 100–500 real, anonymized production inputs covering happy paths, adversarial inputs, and historical bug reports.</li>
-                <li><strong>Code-Based Assertions First:</strong> Fast, deterministic checks on JSON structure, citation presence, regex constraints, latency, and cost.</li>
-                <li><strong>Calibrated LLM-as-a-Judge:</strong> Pairwise or rubric-based model graders aligned against human domain-expert labels (such as a CPA grading accounting classifications).</li>
-              </ul>
-              <span class="source-citation">Named Source: Promptfoo Open-Source Eval Documentation, Braintrust Engineering &amp; Hamel Husain ("Your AI Product Needs Evals")</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: Promptfoo &amp; Hamel Husain</span>
+          <a href="/news/cicd-llm-evaluation-harnesses/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
       <!-- 7. Practical Case: AR Deductions & Chargebacks -->
       <article id="brief-ar-deductions" class="news-card" data-news-category="cases">
         <div>
+          <a class="news-card-thumb" href="/news/wholesale-ar-remittance-deductions/" target="_blank">
+            <img src="/images/news/ar-deductions-workflow.svg" alt="Wholesale AR remittance matching and short-pay dispute packet workflow diagram" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Practical Case · Wholesale</span>
             <span>AR &amp; Collections</span>
           </div>
-          <h3>Automating retail remittance advice parsing and short-pay deduction packets</h3>
+          <h3><a class="news-card-title-link" href="/news/wholesale-ar-remittance-deductions/" target="_blank">Automating retail remittance advice parsing and short-pay deduction packets</a></h3>
           <p>Food, beverage, and CPG distributors selling into national grocery chains face thousands of short-paid invoices each month due to promotional allowances, shortage claims, and compliance chargebacks. Teams are using document agents to match remittance portals against signed PODs and bills of lading.</p>
           <div class="news-takeaway">
             <strong>Controller takeaway:</strong> Pairing an AR specialist with automated remittance parsing recovers invalid customer deductions weeks faster before dispute windows expire.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>Stopping revenue leakage in wholesale distribution</h4>
-              <p>When a big-box retailer or grocery distributor pays an ACH batch covering 150 invoices, they frequently deduct 3–8% for alleged shortages, late delivery fines, orspoiled goods. Researching each deduction manually requires pulling the remittance advice, the original sales order, the carrier’s signed proof of delivery (POD), and warehouse pick tickets.</p>
-              <h4>The hybrid AI + AR Specialist workflow</h4>
-              <ul>
-                <li><strong>Automated packet assembly:</strong> Document pipelines match remittance deduction codes to the corresponding invoice and pull the signed BOL/POD from document storage automatically.</li>
-                <li><strong>Human dispute filing:</strong> Your dedicated AR specialist reviews the assembled evidence packet, writes off valid promotional allowances against trade spend accruals, and submits dispute claims for invalid shortage deductions before the retailer’s 30-day deadline closes.</li>
-              </ul>
-              <span class="source-citation">Named Source: Food &amp; Beverage Wholesale Credit/AR Operations Benchmark</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: Wholesale Credit/AR Benchmark</span>
+          <a href="/news/wholesale-ar-remittance-deductions/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
       <!-- 8. Model Release: Reasoning Models vs. Low-Latency Workhorses -->
       <article id="brief-model-routing" class="news-card" data-news-category="models">
         <div>
+          <a class="news-card-thumb" href="/news/two-tier-reasoning-model-routing/" target="_blank">
+            <img src="/images/news/model-routing-benchmarks.jpg" alt="Extracted LLM benchmark chart from Simon Willison's annual review" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Model Releases</span>
             <span>Cost &amp; Latency Routing</span>
           </div>
-          <h3>Two-tier model routing: pairing reasoning models with fast small models</h3>
+          <h3><a class="news-card-title-link" href="/news/two-tier-reasoning-model-routing/" target="_blank">Two-tier model routing: pairing reasoning models with fast small models</a></h3>
           <p>Across the latest Claude, GPT, Gemini, and open-weight Qwen/Llama releases, production architectures have converged on model routing: using reasoning models for complex multi-step planning, tax/contract edge cases, and synthetic data generation, while routing 85%+ of high-throughput classification to distilled small models.</p>
           <div class="news-takeaway">
             <strong>Engineering takeaway:</strong> Model routing and prompt caching routinely cut production inference bills by 60–80% while keeping sub-second UI responsiveness.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>Matching model class to task complexity</h4>
-              <p>Running every production request through a heavy reasoning model destroys unit economics and introduces 5–15 second wait times. Senior AI engineers design tiered inference pipelines:</p>
-              <ul>
-                <li><strong>Tier 1 (Low-latency flash/mini models):</strong> Intent classification, entity extraction, PII redaction, query rewriting, and standard document triage at a fraction of a cent per call.</li>
-                <li><strong>Tier 2 (Frontier reasoning models):</strong> Invoked selectively when confidence scores drop, when reconciling conflicting multi-document tables, or when generating gold-standard training examples offline.</li>
-                <li><strong>Prompt Caching:</strong> Caching static system instructions, schema definitions, and few-shot examples to reduce input token costs and time-to-first-token by up to 80%.</li>
-              </ul>
-              <span class="source-citation">Named Source: Simon Willison’s LLM Field Notes &amp; Frontier Model Release Benchmarks</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: Simon Willison &amp; Applied LLMs</span>
+          <a href="/news/two-tier-reasoning-model-routing/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
       <!-- 9. Startups & Tooling: Vertical AI in Supply Chain & Customs -->
       <article id="brief-customs-ai" class="news-card" data-news-category="startups">
         <div>
+          <a class="news-card-thumb" href="/news/vertical-ai-customs-freight-audit/" target="_blank">
+            <img src="/images/news/customs-hts-audit.svg" alt="Cross-border customs pre-arrival audit and HTS tariff verification workflow" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Startups &amp; Tooling</span>
             <span>Supply Chain AI</span>
           </div>
-          <h3>Vertical AI startups targeting customs brokerage, HTS classification, and freight audit</h3>
+          <h3><a class="news-card-title-link" href="/news/vertical-ai-customs-freight-audit/" target="_blank">Vertical AI startups targeting customs brokerage, HTS classification, and freight audit</a></h3>
           <p>A wave of seed and Series A startups is building specialized copilot workflows for importers and freight forwarders—automating Harmonized Tariff Schedule (HTS) lookups, commercial invoice validation, phytosanitary document checks, and carrier accessorial auditing.</p>
           <div class="news-takeaway">
             <strong>Operator takeaway:</strong> Software tools accelerate document prep, but cross-border compliance still requires experienced human operators who understand customs holds, cold-chain rules, and carrier contracts.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>Where vertical supply-chain startups are focusing</h4>
-              <p>Cross-border shipments between Latin America, Canada, and the United States require exact alignment across commercial invoices, packing lists, certificates of origin, FDA/USDA notices, and customs entry summaries. New supply-chain AI startups focus on three bottlenecks:</p>
-              <ul>
-                <li><strong>Pre-arrival document auditing:</strong> Flagging weight, carton count, or consignee mismatches across shipper PDFs before the container or reefer truck reaches the border.</li>
-                <li><strong>HTS &amp; duty classification support:</strong> Suggesting tariff codes backed by customs ruling citations for licensed brokers and import compliance teams to verify.</li>
-                <li><strong>Freight contract rate auditing:</strong> Comparing billed carrier fuel surcharges and accessorial fees against contracted rate tables.</li>
-              </ul>
-              <span class="source-citation">Named Source: Cross-Border Logistics &amp; Freight Tech Startup Market Intelligence</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: Cross-Border Freight Tech Briefings</span>
+          <a href="/news/vertical-ai-customs-freight-audit/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
       <!-- 10. Engineering Practice: Applied LLMs in Production -->
       <article id="brief-applied-llms" class="news-card" data-news-category="practices">
         <div>
+          <a class="news-card-thumb" href="/news/applied-llms-production-lessons/" target="_blank">
+            <img src="/images/news/applied-llms-hero.png" alt="Extracted cover graphic from What We Learned from a Year of Building with LLMs" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Engineering Practice</span>
             <span>Field Guide</span>
           </div>
-          <h3>What we learned from a year of building with LLMs (Applied Engineering Survey)</h3>
+          <h3><a class="news-card-title-link" href="/news/applied-llms-production-lessons/" target="_blank">What we learned from a year of building with LLMs (Applied Engineering Survey)</a></h3>
           <p>Co-authored by six seasoned AI engineers and practitioners (Eugene Yan, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu, and Shreya Shankar), this tactical handbook covers sampling, evaluation loops, retrieval optimization, fine-tuning vs. prompting, and defensive guardrails in production.</p>
           <div class="news-takeaway">
             <strong>CTO takeaway:</strong> One of the best benchmarks for senior AI engineering maturity—separating engineers who iterate systematically on data and evals from those who guess at prompts.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>Core lessons from production deployments</h4>
-              <p>Across hundreds of enterprise LLM systems, the authors highlight repeatable engineering habits that separate durable production systems from fragile prototypes:</p>
-              <ul>
-                <li><strong>Look at your data regularly:</strong> Engineers should inspect raw production traces and failure clusters every week rather than relying solely on aggregate metrics.</li>
-                <li><strong>Exhaust prompting and retrieval before fine-tuning:</strong> In-context learning, better chunking, and structured few-shot examples solve the vast majority of accuracy issues without the maintenance burden of custom weights.</li>
-                <li><strong>Design UX around latency and verification:</strong> Show source citations inline—highlighting the exact bounding box on a PDF invoice or line in a codebase—so human reviewers can verify outputs in two seconds.</li>
-              </ul>
-              <span class="source-citation">Named Source: Applied LLMs Practitioner Consortium (Eugene Yan, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu &amp; Shreya Shankar)</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: Applied LLMs Consortium</span>
+          <a href="/news/applied-llms-production-lessons/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
       <!-- 11. Startups & Tooling: Model Context Protocol (MCP) -->
       <article id="brief-mcp" class="news-card" data-news-category="startups">
         <div>
+          <a class="news-card-thumb" href="/news/model-context-protocol-enterprise/" target="_blank">
+            <img src="/images/news/mcp-diagram.png" alt="Extracted official Model Context Protocol (MCP) client-server architecture diagram" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Startups &amp; Ecosystem</span>
             <span>Open Standards</span>
           </div>
-          <h3>Model Context Protocol (MCP) standardizes how AI systems connect to enterprise data</h3>
+          <h3><a class="news-card-title-link" href="/news/model-context-protocol-enterprise/" target="_blank">Model Context Protocol (MCP) standardizes how AI systems connect to enterprise data</a></h3>
           <p>Instead of writing brittle one-off connectors for every database, ERP, Slack workspace, and Git repository, open-source MCP servers provide a uniform protocol for exposing read/write tools, resources, and permission boundaries to LLM applications.</p>
           <div class="news-takeaway">
             <strong>Engineering takeaway:</strong> Standardizes tool definitions and least-privilege access controls when connecting internal company systems to AI assistants.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>Why MCP matters for internal enterprise tooling</h4>
-              <p>Historically, every AI application needed custom glue code for Postgres, Snowflake, NetSuite, GitHub, and internal REST APIs—often with inconsistent authentication and audit logging. The open-source Model Context Protocol separates the <strong>context provider (MCP Server)</strong> from the <strong>AI client</strong>:</p>
-              <ul>
-                <li><strong>Scoped permissions:</strong> Expose strictly typed, read-only queries or human-gated actions with centralized authentication and audit trails.</li>
-                <li><strong>Reusable across models:</strong> Write an internal ERP or warehouse connector once and use it across internal support agents, developer tools, and analytics workflows without vendor lock-in.</li>
-              </ul>
-              <span class="source-citation">Named Source: Model Context Protocol Open Specification (Initiated by Anthropic &amp; Open-Source Contributors)</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: Model Context Protocol Spec</span>
+          <a href="/news/model-context-protocol-enterprise/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
       <!-- 12. Practical Case: Customer Support & Order Status Automation -->
       <article id="brief-order-status" class="news-card" data-news-category="cases">
         <div>
+          <a class="news-card-thumb" href="/news/read-only-erp-customer-operations/" target="_blank">
+            <img src="/images/news/readonly-erp-security.svg" alt="Three-layer security isolation diagram for read-only ERP customer support AI" loading="lazy">
+          </a>
           <div class="news-meta">
             <span class="news-badge">Practical Case · Operations</span>
             <span>Customer Operations</span>
           </div>
-          <h3>Read-only ERP tool calling for instant “Where is my order?” and invoice copy requests</h3>
+          <h3><a class="news-card-title-link" href="/news/read-only-erp-customer-operations/" target="_blank">Read-only ERP tool calling for instant “Where is my order?” and invoice copy requests</a></h3>
           <p>B2B distributors and SaaS companies are connecting customer support inboxes to read-only SQL/ERP endpoints so AI triage agents can draft accurate replies with live tracking numbers, BOL attachments, and open invoice balances—held in draft for human approval before sending.</p>
           <div class="news-takeaway">
             <strong>Security takeaway:</strong> Enforcing read-only database views and human-in-the-loop approval prevents prompt-injection risks while cutting response times.
           </div>
-
-          <details class="news-expand">
-            <summary></summary>
-            <div class="news-expanded-body">
-              <h4>Safe architecture for customer-facing AI</h4>
-              <p>Giving an LLM direct write access to an ERP or customer database exposes a business to prompt injection and unauthorized credits. Mature operations teams use a three-layer defense:</p>
-              <ul>
-                <li><strong>Deterministic sender verification:</strong> Match the incoming email address against verified customer contacts in the CRM/ERP before executing any lookup tool.</li>
-                <li><strong>Read-only parameterized queries:</strong> The model can only call pre-compiled SQL views scoped to that specific `customer_id` (fetching shipment status, carrier PRO numbers, or invoice PDFs).</li>
-                <li><strong>Human-in-the-loop release:</strong> The draft reply and attached invoice/BOL appear in the coordinator’s queue for one-click review and dispatch.</li>
-              </ul>
-              <span class="source-citation">Named Source: Production AI Security Patterns &amp; B2B Distribution Operations Field Guide</span>
-            </div>
-          </details>
+        </div>
+        <div class="news-footer">
+          <span class="news-source">Source: Production AI Security Guide</span>
+          <a href="/news/read-only-erp-customer-operations/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
         </div>
       </article>
 
     </div>
   </section>
 
-  <!-- Live AI Engineering Wire & Curated Sources (All Expand On-Site) -->
+  <!-- Live AI Engineering Wire & Curated Sources (All On-Site) -->
   <section class="band-surface section">
     <div class="wrap">
       <div class="grid-2">
@@ -445,6 +358,7 @@
                 <summary style="display: flex; justify-content: space-between; width: 100%;"><span style="color: var(--text-primary); font-weight: 600;">Building Effective Agents: Composable patterns for production LLMs</span></summary>
                 <div class="news-expanded-body">
                   <p>Details why production engineering teams favor simple, deterministic control flows (prompt chaining, routing, orchestrator-workers, and evaluator-optimizers) over complex autonomous agent frameworks.</p>
+                  <p><a href="/news/workflows-vs-autonomous-agents/" target="_blank" style="font-weight: 600;">Open complete article with extracted diagrams in new page ↗</a></p>
                   <span class="source-citation">Named Source: Anthropic Engineering · Production Systems Track</span>
                 </div>
               </details>
@@ -454,6 +368,7 @@
                 <summary style="display: flex; justify-content: space-between; width: 100%;"><span style="color: var(--text-primary); font-weight: 600;">What We Learned from a Year of Building with LLMs</span></summary>
                 <div class="news-expanded-body">
                   <p>Comprehensive practitioner survey covering evaluation harnesses, hybrid RAG retrieval, structured outputs, latency/cost routing, and why inspecting raw production data beats blind fine-tuning.</p>
+                  <p><a href="/news/applied-llms-production-lessons/" target="_blank" style="font-weight: 600;">Open complete article with extracted diagrams in new page ↗</a></p>
                   <span class="source-citation">Named Source: Applied LLMs Consortium (Yan, Bischof, Frye, Husain, Liu, Shankar)</span>
                 </div>
               </details>
@@ -463,6 +378,7 @@
                 <summary style="display: flex; justify-content: space-between; width: 100%;"><span style="color: var(--text-primary); font-weight: 600;">Structured Outputs &amp; Grammar-Constrained Decoding in Production APIs</span></summary>
                 <div class="news-expanded-body">
                   <p>How context-free grammar token masking guarantees 100% adherence to JSON Schemas—allowing LLM extractors to feed typed ERP, SQL, and accounting workflows safely.</p>
+                  <p><a href="/news/schema-enforced-structured-outputs/" target="_blank" style="font-weight: 600;">Open complete article with extracted diagrams in new page ↗</a></p>
                   <span class="source-citation">Named Source: OpenAI Platform Engineering</span>
                 </div>
               </details>

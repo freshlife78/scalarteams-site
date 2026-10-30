@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="IBM Plex Sans, -apple-system, sans-serif">
+  <rect width="960" height="480" fill="#0B1626"/>
+  <rect x="24" y="24" width="912" height="432" rx="10" fill="#132238" stroke="#233854" stroke-width="2"/>
+  <text x="52" y="68" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" letter-spacing="1">PRODUCTION WORKFLOW · 3PL FREIGHT &amp; COLD-CHAIN TRIAGE</text>
+  <text x="52" y="102" fill="#F8FAFC" font-size="24" font-weight="700">Unstructured Rate Confirmations &amp; BOLs to Staged TMS Order</text>
+  
+  <!-- Box 1 -->
+  <rect x="52" y="145" width="195" height="190" rx="8" fill="#0B1626" stroke="#334E68" stroke-width="2"/>
+  <text x="72" y="178" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">01 · INGESTION</text>
+  <text x="72" y="204" fill="#F8FAFC" font-size="16" font-weight="600">Shared 3PL Inbox</text>
+  <text x="72" y="232" fill="#94A3B8" font-size="13">• Shipper spot-quote emails</text>
+  <text x="72" y="254" fill="#94A3B8" font-size="13">• PDF Rate Confirmations</text>
+  <text x="72" y="276" fill="#94A3B8" font-size="13">• Scanned Bills of Lading</text>
+  <text x="72" y="298" fill="#94A3B8" font-size="13">• Reefer temp logs (-10°F)</text>
+
+  <!-- Arrow 1 -->
+  <path d="M247 240 L283 240" stroke="#3B82F6" stroke-width="2.5"/>
+  <polygon points="283,235 293,240 283,245" fill="#3B82F6"/>
+
+  <!-- Box 2 -->
+  <rect x="293" y="145" width="205" height="190" rx="8" fill="#0B1626" stroke="#3B82F6" stroke-width="2"/>
+  <text x="313" y="178" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">02 · VISION + SCHEMA LLM</text>
+  <text x="313" y="204" fill="#F8FAFC" font-size="16" font-weight="600">Structured Extraction</text>
+  <text x="313" y="232" fill="#94A3B8" font-size="13">• Origin / Dest ZIP &amp; docks</text>
+  <text x="313" y="254" fill="#94A3B8" font-size="13">• Pallet count &amp; gross weight</text>
+  <text x="313" y="276" fill="#94A3B8" font-size="13">• Set-point temp &amp; commodity</text>
+  <text x="313" y="298" fill="#94A3B8" font-size="13">• Lumper / detention line items</text>
+
+  <!-- Arrow 2 -->
+  <path d="M498 240 L534 240" stroke="#3B82F6" stroke-width="2.5"/>
+  <polygon points="534,235 544,240 534,245" fill="#3B82F6"/>
+
+  <!-- Box 3 -->
+  <rect x="544" y="145" width="175" height="190" rx="8" fill="#0B1626" stroke="#334E68" stroke-width="2"/>
+  <text x="564" y="178" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">03 · VALIDATION</text>
+  <text x="564" y="204" fill="#F8FAFC" font-size="16" font-weight="600">Rules &amp; Tariff Check</text>
+  <text x="564" y="232" fill="#94A3B8" font-size="13">• Customer master lookup</text>
+  <text x="564" y="254" fill="#94A3B8" font-size="13">• Contracted lane rate check</text>
+  <text x="564" y="276" fill="#94A3B8" font-size="13">• Carrier MC/DOT active</text>
+  <text x="564" y="298" fill="#94A3B8" font-size="13">• Confidence threshold ≥ 0.95</text>
+
+  <!-- Arrow 3 -->
+  <path d="M719 240 L755 240" stroke="#10B981" stroke-width="2.5"/>
+  <polygon points="755,235 765,240 755,245" fill="#10B981"/>
+
+  <!-- Box 4 -->
+  <rect x="765" y="145" width="145" height="190" rx="8" fill="#0B1626" stroke="#10B981" stroke-width="2"/>
+  <text x="783" y="178" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">04 · OPERATOR</text>
+  <text x="783" y="204" fill="#F8FAFC" font-size="16" font-weight="600">TMS Draft Review</text>
+  <text x="783" y="232" fill="#94A3B8" font-size="13">• 1-click TMS commit</text>
+  <text x="783" y="254" fill="#94A3B8" font-size="13">• Exception queue</text>
+  <text x="783" y="276" fill="#94A3B8" font-size="13">• Carrier dispatch</text>
+  <text x="783" y="298" fill="#94A3B8" font-size="13">• Detention audit</text>
+
+  <rect x="52" y="365" width="858" height="58" rx="6" fill="#0B1626" stroke="#233854"/>
+  <text x="72" y="400" fill="#CBD5E1" font-size="14"><tspan fill="#60A5FA" font-weight="600">Control Principle:</tspan> AI never dispatches a truck or approves carrier accessorial charges autonomously. All parsed loads enter TMS as Pending Review.</text>
+</svg>

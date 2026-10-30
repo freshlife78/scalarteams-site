@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="IBM Plex Sans, -apple-system, sans-serif">
+  <rect width="960" height="480" fill="#0B1626"/>
+  <rect x="24" y="24" width="912" height="432" rx="10" fill="#132238" stroke="#233854" stroke-width="2"/>
+  <text x="52" y="68" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" letter-spacing="1">FINANCE &amp; ERP CONTROLS · AUTOMATED 3-WAY MATCH</text>
+  <text x="52" y="102" fill="#F8FAFC" font-size="24" font-weight="700">Vision-LLM Invoice Parsing &amp; NetSuite / QuickBooks Voucher Staging</text>
+
+  <!-- 3 Inputs on Left -->
+  <rect x="52" y="135" width="230" height="72" rx="6" fill="#0B1626" stroke="#334E68" stroke-width="1.5"/>
+  <text x="70" y="164" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">DOCUMENT 1 · PURCHASE ORDER</text>
+  <text x="70" y="188" fill="#F8FAFC" font-size="14" font-weight="600">Approved ERP PO (SKUs &amp; Unit Cost)</text>
+
+  <rect x="52" y="224" width="230" height="72" rx="6" fill="#0B1626" stroke="#334E68" stroke-width="1.5"/>
+  <text x="70" y="253" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">DOCUMENT 2 · WAREHOUSE RECEIPT</text>
+  <text x="70" y="277" fill="#F8FAFC" font-size="14" font-weight="600">Signed BOL / WMS Item Receipt</text>
+
+  <rect x="52" y="313" width="230" height="72" rx="6" fill="#0B1626" stroke="#3B82F6" stroke-width="2"/>
+  <text x="70" y="342" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">DOCUMENT 3 · VENDOR INVOICE PDF</text>
+  <text x="70" y="366" fill="#F8FAFC" font-size="14" font-weight="600">Vision-LLM Line-Item &amp; Freight Parse</text>
+
+  <!-- Connectors -->
+  <path d="M282 171 L345 260 M282 260 L345 260 M282 349 L345 260" stroke="#3B82F6" stroke-width="2"/>
+
+  <!-- Center Matching Engine -->
+  <rect x="345" y="165" width="255" height="190" rx="8" fill="#0B1626" stroke="#3B82F6" stroke-width="2"/>
+  <text x="367" y="198" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">DETERMINISTIC RECONCILIATION</text>
+  <text x="367" y="224" fill="#F8FAFC" font-size="17" font-weight="600">Line-by-Line 3-Way Match</text>
+  <text x="367" y="252" fill="#94A3B8" font-size="13">• Vendor SKU → ERP Item Master</text>
+  <text x="367" y="274" fill="#94A3B8" font-size="13">• Qty billed vs. Qty received</text>
+  <text x="367" y="296" fill="#94A3B8" font-size="13">• Unit price vs. contracted PO price</text>
+  <text x="367" y="318" fill="#94A3B8" font-size="13">• Freight/fuel surcharge allocation</text>
+
+  <!-- Two Outcomes -->
+  <path d="M600 225 L655 190" stroke="#10B981" stroke-width="2.5"/>
+  <path d="M600 295 L655 330" stroke="#F59E0B" stroke-width="2.5"/>
+
+  <rect x="655" y="140" width="255" height="105" rx="8" fill="#0B1626" stroke="#10B981" stroke-width="2"/>
+  <text x="675" y="170" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">MATCH WITHIN TOLERANCE (80-85%)</text>
+  <text x="675" y="194" fill="#F8FAFC" font-size="15" font-weight="600">Stage Draft Bill in ERP</text>
+  <text x="675" y="218" fill="#94A3B8" font-size="13">Queued for Controller batch approval</text>
+
+  <rect x="655" y="275" width="255" height="110" rx="8" fill="#0B1626" stroke="#F59E0B" stroke-width="2"/>
+  <text x="675" y="305" fill="#FBBF24" font-family="IBM Plex Mono, monospace" font-size="12">VARIANCE FLAGGED (15-20%)</text>
+  <text x="675" y="329" fill="#F8FAFC" font-size="15" font-weight="600">AP Specialist Exception Queue</text>
+  <text x="675" y="353" fill="#94A3B8" font-size="13">Short-ship, damaged goods, or rate</text>
+  <text x="675" y="371" fill="#94A3B8" font-size="13">discrepancy routed for vendor credit</text>
+</svg>

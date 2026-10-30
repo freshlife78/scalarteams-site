@@ -185,77 +185,73 @@
       <div class="grid-2" style="margin-bottom: 32px;">
         <article class="news-card">
           <div>
+            <a class="news-card-thumb" href="/news/vision-llm-ap-three-way-matching/" target="_blank">
+              <img src="/images/news/ap-three-way-match.svg" alt="Automated three-way match workflow between Purchase Order, Warehouse Receipt, and Vendor Invoice" loading="lazy">
+            </a>
             <div class="news-meta">
               <span class="news-badge">Practical Case · Finance &amp; 3PL</span>
               <span>AP &amp; Freight Operations</span>
             </div>
-            <h3>Vision-LLM invoice extraction &amp; automated freight bill triage</h3>
+            <h3><a class="news-card-title-link" href="/news/vision-llm-ap-three-way-matching/" target="_blank">Vision-LLM invoice extraction &amp; automated three-way PO matching</a></h3>
             <p>Distributors and 3PLs are pairing multimodal document models with NetSuite, QuickBooks, and TMS systems to parse multi-page vendor PDFs, bills of lading, and rate confirmations—routing three-way match variances to human AP and logistics specialists.</p>
-            <details class="news-expand">
-              <summary></summary>
-              <div class="news-expanded-body">
-                <h4>How controllers &amp; 3PLs deploy it</h4>
-                <p>Multimodal document pipelines read scanned vendor invoices and bills of lading, matching line-item SKUs, unit prices, and accessorial charges against ERP purchase orders and receiving logs. Clean matches stage as draft vouchers in NetSuite or QuickBooks, while the 15–20% with price/quantity discrepancies route to a dedicated bilingual AP or freight specialist.</p>
-                <span class="source-citation">Named Sources: C.H. Robinson Freight Automation Case Study &amp; Ramp Engineering</span>
-              </div>
-            </details>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Ramp Engineering &amp; AP Benchmarks</span>
+            <a href="/news/vision-llm-ap-three-way-matching/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
           </div>
         </article>
 
         <article class="news-card">
           <div>
+            <a class="news-card-thumb" href="/news/workflows-vs-autonomous-agents/" target="_blank">
+              <img src="/images/news/effective-agents-hero.jpg" alt="Extracted cover illustration from Anthropic Engineering's Building Effective Agents guide" loading="lazy">
+            </a>
             <div class="news-meta">
               <span class="news-badge">Engineering Practice</span>
               <span>Production LLMs</span>
             </div>
-            <h3>Composable workflows vs. autonomous agents &amp; Contextual RAG</h3>
-            <p>Why production teams favor deterministic prompt-chaining, routing, and hybrid BM25 + vector reranking over brittle multi-agent frameworks—and how we test AI engineering candidates on these exact patterns.</p>
-            <details class="news-expand">
-              <summary></summary>
-              <div class="news-expanded-body">
-                <h4>Why simple control loops win in production</h4>
-                <p>Successful enterprise deployments avoid unconstrained autonomous loops and rely on deterministic code paths: prompt chaining, classifier routing, orchestrator-workers, and hybrid Contextual Retrieval (prepending document context + BM25 keyword search + cross-encoder reranking, which cuts retrieval misses by 67%).</p>
-                <span class="source-citation">Named Source: Anthropic Engineering ("Building Effective Agents" &amp; "Contextual Retrieval")</span>
-              </div>
-            </details>
+            <h3><a class="news-card-title-link" href="/news/workflows-vs-autonomous-agents/" target="_blank">Workflows vs. Autonomous Agents: why simple composable patterns win in production</a></h3>
+            <p>Why production teams favor deterministic prompt-chaining, routing, orchestrator-workers, and evaluator-optimizers over brittle autonomous agent frameworks—and how we test AI engineering candidates on these exact patterns.</p>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Anthropic Engineering</span>
+            <a href="/news/workflows-vs-autonomous-agents/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
           </div>
         </article>
 
         <article class="news-card">
           <div>
+            <a class="news-card-thumb" href="/news/contextual-retrieval-hybrid-rag/" target="_blank">
+              <img src="/images/news/contextual-retrieval-diagram.png" alt="Extracted Contextual Retrieval architecture diagram combining Contextual Embeddings, BM25, and Reranking" loading="lazy">
+            </a>
             <div class="news-meta">
-              <span class="news-badge">Model Releases</span>
-              <span>API Architecture</span>
+              <span class="news-badge">Engineering Practice · RAG</span>
+              <span>Retrieval Architecture</span>
             </div>
-            <h3>100% JSON-schema structured outputs &amp; two-tier model routing</h3>
-            <p>How grammar-constrained token sampling bridges LLMs with strict ERP/SQL schemas, and how pairing frontier reasoning models with low-latency workhorses cuts production inference costs by 60–80%.</p>
-            <details class="news-expand">
-              <summary></summary>
-              <div class="news-expanded-body">
-                <h4>Bridging LLMs to deterministic backends</h4>
-                <p>Context-free grammar masking guarantees that model responses strictly obey your Pydantic or Zod JSON schemas—eliminating broken parsers when writing into SQL or ERP tables. Pairing fast small models for 85%+ of classification traffic with reasoning models for complex edge cases keeps latency sub-second.</p>
-                <span class="source-citation">Named Sources: OpenAI Platform Engineering ("Structured Outputs") &amp; Simon Willison’s LLM Field Notes</span>
-              </div>
-            </details>
+            <h3><a class="news-card-title-link" href="/news/contextual-retrieval-hybrid-rag/" target="_blank">Contextual Retrieval + BM25 + Reranking cuts RAG retrieval failures by 67%</a></h3>
+            <p>How prepending chunk-specific context headers at indexing time and combining dense vector embeddings with BM25 lexical search and cross-encoder reranking solves enterprise RAG misses on financial tables and contracts.</p>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Anthropic Research</span>
+            <a href="/news/contextual-retrieval-hybrid-rag/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
           </div>
         </article>
 
         <article class="news-card">
           <div>
+            <a class="news-card-thumb" href="/news/cicd-llm-evaluation-harnesses/" target="_blank">
+              <img src="/images/news/eval-harnesses-hero.jpg" alt="Extracted screenshot of Promptfoo evaluation matrix comparing prompts and assertions" loading="lazy">
+            </a>
             <div class="news-meta">
               <span class="news-badge">Startups &amp; Tooling</span>
-              <span>Evals &amp; Supply Chain AI</span>
+              <span>LLM Ops &amp; Evals</span>
             </div>
-            <h3>CI/CD evaluation harnesses, MCP connectors, and customs/freight AI startups</h3>
-            <p>A look at the tooling stack replacing manual prompt checks (Braintrust, Promptfoo, LangSmith, Model Context Protocol) alongside vertical startups automating HTS tariff classification and remittance deductions.</p>
-            <details class="news-expand">
-              <summary></summary>
-              <div class="news-expanded-body">
-                <h4>The modern AI engineering &amp; operations stack</h4>
-                <p>Engineering teams now gate pull requests on automated evaluation suites using golden production traces and standardized Model Context Protocol (MCP) servers for read-only database access, while vertical supply-chain startups target pre-arrival customs document checks and retail short-pay deduction packets.</p>
-                <span class="source-citation">Named Sources: Promptfoo, Braintrust, Model Context Protocol &amp; Applied LLMs Consortium</span>
-              </div>
-            </details>
+            <h3><a class="news-card-title-link" href="/news/cicd-llm-evaluation-harnesses/" target="_blank">The rise of CI/CD evaluation harnesses: Braintrust, LangSmith, Arize Phoenix &amp; Promptfoo</a></h3>
+            <p>A look at the developer tooling stack replacing manual prompt checks with automated regression suites, golden production traces, and calibrated LLM-as-a-judge rubrics.</p>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Promptfoo &amp; Hamel Husain</span>
+            <a href="/news/cicd-llm-evaluation-harnesses/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
           </div>
         </article>
       </div>

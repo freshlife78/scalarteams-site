@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="IBM Plex Sans, -apple-system, sans-serif">
+  <rect width="960" height="480" fill="#0B1626"/>
+  <rect x="24" y="24" width="912" height="432" rx="10" fill="#132238" stroke="#233854" stroke-width="2"/>
+  <text x="52" y="68" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" letter-spacing="1">CROSS-BORDER SUPPLY CHAIN AI · PRE-ARRIVAL AUDIT</text>
+  <text x="52" y="102" fill="#F8FAFC" font-size="24" font-weight="700">Commercial Invoice, Packing List &amp; HTS Tariff Reconciliation</text>
+
+  <rect x="52" y="145" width="260" height="255" rx="8" fill="#0B1626" stroke="#334E68" stroke-width="2"/>
+  <text x="72" y="178" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">SHIPPER PACKET (LATAM / CANADA)</text>
+  <text x="72" y="206" fill="#F8FAFC" font-size="16" font-weight="600">Multi-Document Entry</text>
+  <text x="72" y="236" fill="#94A3B8" font-size="13">• Commercial Invoice (Spanish/EN)</text>
+  <text x="72" y="260" fill="#94A3B8" font-size="13">• Export Packing List (Net/Gross kg)</text>
+  <text x="72" y="284" fill="#94A3B8" font-size="13">• Certificate of Origin (USMCA/FTA)</text>
+  <text x="72" y="308" fill="#94A3B8" font-size="13">• USDA / FDA Prior Notice data</text>
+
+  <path d="M312 272 L358 272" stroke="#3B82F6" stroke-width="2.5"/>
+  <polygon points="358,267 368,272 358,277" fill="#3B82F6"/>
+
+  <rect x="368" y="145" width="260" height="255" rx="8" fill="#0B1626" stroke="#3B82F6" stroke-width="2"/>
+  <text x="388" y="178" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">VERTICAL AI AUDIT ENGINE</text>
+  <text x="388" y="206" fill="#F8FAFC" font-size="16" font-weight="600">Pre-Border Discrepancy Check</text>
+  <text x="388" y="236" fill="#94A3B8" font-size="13">• Cross-checks carton count &amp; weight</text>
+  <text x="388" y="260" fill="#94A3B8" font-size="13">• Retrieves CBP CROSS ruling citations</text>
+  <text x="388" y="284" fill="#94A3B8" font-size="13">• Validates 10-digit HTSUS codes</text>
+  <text x="388" y="308" fill="#94A3B8" font-size="13">• Audits carrier fuel &amp; border fees</text>
+
+  <path d="M628 272 L674 272" stroke="#10B981" stroke-width="2.5"/>
+  <polygon points="674,267 684,272 674,277" fill="#10B981"/>
+
+  <rect x="684" y="145" width="224" height="255" rx="8" fill="#0B1626" stroke="#10B981" stroke-width="2"/>
+  <text x="704" y="178" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">LICENSED BROKER &amp; OPS</text>
+  <text x="704" y="206" fill="#F8FAFC" font-size="16" font-weight="600">Cleared Before Arrival</text>
+  <text x="704" y="236" fill="#94A3B8" font-size="13">• Corrects shipper typos early</text>
+  <text x="704" y="260" fill="#94A3B8" font-size="13">• Prevents border cold-chain holds</text>
+  <text x="704" y="284" fill="#94A3B8" font-size="13">• Broker signs off on Form 7501</text>
+  <text x="704" y="308" fill="#94A3B8" font-size="13">• Landed cost syncs to ERP</text>
+</svg>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What We Learned from a Year of Building with LLMs (Applied Engineering Survey) — Scalar Teams AI Briefing</title>
+<meta name="description" content="Key operational lessons from the landmark 'Applied LLMs' practitioner study by Eugene Yan, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu, and Shreya Shankar.">
+<link rel="canonical" href="https://scalarteams.com/news/applied-llms-production-lessons/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Scalar Teams">
+<meta property="og:url" content="https://scalarteams.com/news/applied-llms-production-lessons/">
+<meta property="og:title" content="What We Learned from a Year of Building with LLMs (Applied Engineering Survey) — Scalar Teams">
+<meta property="og:description" content="Key operational lessons from the landmark 'Applied LLMs' practitioner study by Eugene Yan, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu, and Shreya Shankar.">
+<meta property="og:image" content="https://scalarteams.com/images/news/applied-llms-hero.png">
+<meta name="theme-color" content="#0B1626">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "What We Learned from a Year of Building with LLMs (Applied Engineering Survey)",
+  "description": "Key operational lessons from the landmark 'Applied LLMs' practitioner study by Eugene Yan, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu, and Shreya Shankar.",
+  "image": "https://scalarteams.com/images/news/applied-llms-hero.png",
+  "author": {
+    "@type": "Organization",
+    "name": "Scalar Teams",
+    "url": "https://scalarteams.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scalar Teams",
+    "url": "https://scalarteams.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://scalarteams.com/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "https://scalarteams.com/news/applied-llms-production-lessons/"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Scalar Teams home">
+      <svg class="brand-mark" aria-hidden="true" width="30" height="30" viewBox="0 0 40 40">
+        <rect class="stroke-box" x="4" y="4" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="stroke-box" x="15" y="15" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="fill-box" x="15" y="15" width="10" height="10"/>
+      </svg>
+      <span class="brand-name">Scalar<span> Teams</span></span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-link" href="/finance-accounting/">Finance &amp; Accounting</a>
+      <a class="nav-link" href="/hire-ai-engineers/">AI Engineers</a>
+      <a class="nav-link" href="/news/" aria-current="page">AI Briefing</a>
+      <a class="nav-link" href="/about/">About</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle light or dark color theme">Theme</button>
+      <a class="nav-cta" href="/request-a-quote/">Request a written quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="article-wrap">
+    <a class="article-breadcrumb" href="/news/">← Back to all AI Briefings &amp; Case Studies</a>
+
+    <header class="article-header">
+      <div class="news-meta">
+        <span class="news-badge">Engineering Practice · Field Guide</span>
+        <span>Production Engineering · 8 min read</span>
+      </div>
+      <h1>What We Learned from a Year of Building with LLMs (Applied Engineering Survey)</h1>
+      <p class="article-lead">Synthesizing lessons across hundreds of real-world deployments, six veteran AI practitioners—Eugene Yan, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu, and Shreya Shankar—documented the operational habits that separate durable production LLM systems from fragile demos.</p>
+      <div class="article-source-banner">
+        <span><strong>Named Source:</strong> Applied LLMs Practitioner Consortium (Eugene Yan, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu & Shreya Shankar — applied-llms.org)</span>
+        <span>Full On-Site Briefing</span>
+      </div>
+    </header>
+
+    <figure class="article-figure">
+      <img src="/images/news/applied-llms-hero.png" alt="Extracted cover graphic from the What We Learned from a Year of Building with LLMs practitioner handbook" loading="eager">
+      <figcaption>Figure 1: Extracted cover illustration from 'What We Learned from a Year of Building with LLMs' (Source: Applied LLMs Consortium / applied-llms.org).</figcaption>
+    </figure>
+
+    <div class="article-callout">
+      <h3>CTO Vetting Takeaway</h3>
+      <p>We use the tactical practices in this field guide as a blueprint when interviewing senior AI engineering candidates—specifically testing whether candidates inspect raw failure traces, exhaust retrieval + in-context learning before fine-tuning, and design verification-first UX.</p>
+    </div>
+
+    <div class="article-body">
+      
+<h2>Lesson 1: Look at Your Data Every Single Week</h2>
+<p>The single highest-leverage habit among successful AI engineering teams is simple yet surprisingly rare: <strong>regularly reading raw production inputs, intermediate retrieval chunks, and model outputs</strong>. Teams that rely exclusively on aggregate dashboard metrics miss obvious failure modes—such as broken PDF table parsers, truncated context windows, or users asking questions in a language or format the prompt never anticipated.</p>
+<p>Senior engineers build lightweight trace-inspection views so product managers, domain experts (CPAs, clinicians, lawyers), and engineers can review 50 real production traces a week and categorize failure clusters.</p>
+
+<h2>Lesson 2: Exhaust Prompting, Few-Shot Examples, and RAG Before Fine-Tuning</h2>
+<p>Inexperienced teams often propose fine-tuning an open-weight or proprietary model as their first solution to accuracy problems. The Applied LLMs authors warn strongly against premature fine-tuning:</p>
+<ul>
+  <li><strong>If the model lacks domain facts:</strong> Fine-tuning is the wrong tool for injecting rapidly changing company data (such as current inventory prices, customer contracts, or updated tax rules). Improve your RAG pipeline (hybrid search, metadata filtering, contextual chunking) instead.</li>
+  <li><strong>If the model fails formatting or edge-case reasoning:</strong> Dynamic few-shot prompting—retrieving the 3–5 most similar gold-standard input/output examples from a verified bank and injecting them into the prompt—frequently matches or beats fine-tuning without locking you into a deprecated model checkpoint.</li>
+  <li><strong>When fine-tuning actually makes sense:</strong> Only after prompting and RAG are exhausted, and usually to distil the behavior of a slow, expensive frontier model into a smaller, low-latency model for a narrow, high-volume task.</li>
+</ul>
+
+<h2>Lesson 3: Design User Interfaces Around Verification Speed</h2>
+<p>Because LLMs remain probabilistic, the user interface must make human verification effortless. Rather than presenting a wall of generated text and forcing the user to cross-check a 40-page PDF manually, production interfaces:</p>
+<ul>
+  <li>Render extracted fields right next to the source document with <strong>highlighted bounding boxes</strong> showing the exact line where each number came from.</li>
+  <li>Provide keyboard-driven <em>Approve / Edit / Reject</em> workflows so a human operator can verify 60 records an hour—while every human edit automatically logs a gold-standard training pair.</li>
+</ul>
+
+<h2>Lesson 4: Defensive Guardrails &amp; Input/Output Isolation</h2>
+<p>Production systems assume user inputs and external documents are untrusted. Mature architectures combine input guards (PII masking, prompt-injection detection, scope filters) with strict output validation and least-privilege tool execution so a malformed or adversarial document cannot trigger unauthorized downstream actions.</p>
+
+      
+      <figure class="article-figure">
+        <img src="/images/news/enterprise-llm-adoption.jpg" alt="Extracted chart from Applied LLMs / a16z survey showing enterprise willingness to deploy LLMs across internal vs external use cases" loading="lazy">
+        <figcaption>Figure 2: Enterprise deployment patterns showing why high-ROI internal copilot and human-in-the-loop extraction workflows lead production adoption (Source: Applied LLMs / a16z Enterprise Survey).</figcaption>
+      </figure>
+
+      <figure class="article-figure">
+        <img src="/images/news/applied-llms-evalgen.png" alt="Extracted workflow diagram from Applied LLMs showing iterative alignment of evaluation assertions with human preferences" loading="lazy">
+        <figcaption>Figure 3: Iterative evaluation loop aligning automated checks with human domain review (Source: Applied LLMs / Shankar et al.).</figcaption>
+      </figure>
+    </div>
+
+    <aside class="article-source-box" aria-label="Source attribution">
+      <h3>Source Attribution &amp; Editorial Note</h3>
+      <p><strong>Primary Source Cited:</strong> Applied LLMs Practitioner Consortium (Eugene Yan, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu & Shreya Shankar — applied-llms.org). This technical briefing is prepared and hosted in full by Scalar Teams for finance, supply-chain, and engineering leaders evaluating practical AI implementation and team staffing.</p>
+    </aside>
+
+    <div class="card" style="margin-top: 36px;">
+      <p class="eyebrow">Need Vetted Talent to Execute?</p>
+      <h2 style="font-size: 24px; margin-bottom: 10px;">Hire senior talent in Latin America and Canada—employed through our Ecuador EOR office.</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 20px;">Whether you need a senior AI engineer who builds production RAG and evaluation pipelines, or a bilingual accountant and logistics coordinator who understands three-way matching and freight operations, send us your role brief for a written quote by email.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/request-a-quote/">Request a written quote</a>
+        <a class="btn btn-secondary" href="/hire-ai-engineers/">Hire Vetted Senior AI Engineers</a>
+        <a class="btn btn-secondary" href="/news/">Browse all 12 AI Briefings</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="brand-mark" aria-hidden="true" width="22" height="22" viewBox="0 0 40 40">
+        <rect class="stroke-box" x="4" y="4" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="stroke-box" x="15" y="15" width="21" height="21" fill="none" stroke-width="3.5"/>
+        <rect class="fill-box" x="15" y="15" width="10" height="10"/>
+      </svg>
+      <span>© 2026 Scalar Teams · British Columbia, Canada &amp; Ecuador · Billed monthly in advance in USD</span>
+    </div>
+    <ul class="footer-links" aria-label="Footer navigation">
+      <li><a href="/">Home</a></li>
+      <li><a href="/finance-accounting/">Finance &amp; Accounting</a></li>
+      <li><a href="/hire-ai-engineers/">Senior AI Engineers</a></li>
+      <li><a href="/news/">AI Briefing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/request-a-quote/">Request a Quote</a></li>
+      <li><a href="mailto:hello@scalarteams.com">hello@scalarteams.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
+</body>
+</html>

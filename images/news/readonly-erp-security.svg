@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="IBM Plex Sans, -apple-system, sans-serif">
+  <rect width="960" height="480" fill="#0B1626"/>
+  <rect x="24" y="24" width="912" height="432" rx="10" fill="#132238" stroke="#233854" stroke-width="2"/>
+  <text x="52" y="68" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" letter-spacing="1">SECURITY ARCHITECTURE · CUSTOMER OPERATIONS AI</text>
+  <text x="52" y="102" fill="#F8FAFC" font-size="24" font-weight="700">Three-Layer Isolation for Read-Only ERP Order &amp; Invoice Lookups</text>
+
+  <rect x="52" y="145" width="250" height="255" rx="8" fill="#0B1626" stroke="#334E68" stroke-width="2"/>
+  <text x="72" y="178" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">LAYER 1 · IDENTITY GATE</text>
+  <text x="72" y="206" fill="#F8FAFC" font-size="16" font-weight="600">Sender &amp; Tenant Binding</text>
+  <text x="72" y="236" fill="#94A3B8" font-size="13">• Verifies DKIM/SPF &amp; contact email</text>
+  <text x="72" y="260" fill="#94A3B8" font-size="13">• Binds session to exact customer_id</text>
+  <text x="72" y="284" fill="#94A3B8" font-size="13">  in deterministic application code</text>
+  <text x="72" y="308" fill="#94A3B8" font-size="13">• LLM cannot override tenant scope</text>
+
+  <path d="M302 272 L348 272" stroke="#3B82F6" stroke-width="2.5"/>
+  <polygon points="348,267 358,272 348,277" fill="#3B82F6"/>
+
+  <rect x="358" y="145" width="265" height="255" rx="8" fill="#0B1626" stroke="#3B82F6" stroke-width="2"/>
+  <text x="378" y="178" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">LAYER 2 · PARAMETERIZED READ VIEW</text>
+  <text x="378" y="206" fill="#F8FAFC" font-size="16" font-weight="600">No Raw SQL · No Write Access</text>
+  <text x="378" y="236" fill="#94A3B8" font-size="13">• Model calls typed read-only tools:</text>
+  <text x="378" y="260" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">  get_shipment_status(order_id)</text>
+  <text x="378" y="284" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">  get_invoice_pdf(invoice_id)</text>
+  <text x="378" y="308" fill="#F87171" font-family="IBM Plex Mono, monospace" font-size="12">  ✕ No credit/refund/bank tools</text>
+
+  <path d="M623 272 L669 272" stroke="#10B981" stroke-width="2.5"/>
+  <polygon points="669,267 679,272 669,277" fill="#10B981"/>
+
+  <rect x="679" y="145" width="229" height="255" rx="8" fill="#0B1626" stroke="#10B981" stroke-width="2"/>
+  <text x="699" y="178" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">LAYER 3 · HUMAN RELEASE</text>
+  <text x="699" y="206" fill="#F8FAFC" font-size="16" font-weight="600">Drafted in Helpdesk Queue</text>
+  <text x="699" y="236" fill="#94A3B8" font-size="13">• Attaches BOL &amp; invoice PDF</text>
+  <text x="699" y="260" fill="#94A3B8" font-size="13">• Includes carrier PRO tracking</text>
+  <text x="699" y="284" fill="#94A3B8" font-size="13">• Coordinator reviews &amp; clicks</text>
+  <text x="699" y="306" fill="#94A3B8" font-size="13">  Send in 10 seconds</text>
+</svg>

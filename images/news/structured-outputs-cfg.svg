@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="IBM Plex Sans, -apple-system, sans-serif">
+  <rect width="960" height="480" fill="#0B1626"/>
+  <rect x="24" y="24" width="912" height="432" rx="10" fill="#132238" stroke="#233854" stroke-width="2"/>
+  <text x="52" y="68" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" letter-spacing="1">MODEL RELEASE ARCHITECTURE · CONSTRAINED DECODING</text>
+  <text x="52" y="102" fill="#F8FAFC" font-size="24" font-weight="700">How Grammar-Constrained Token Sampling Guarantees 100% Schema Compliance</text>
+
+  <rect x="52" y="140" width="250" height="270" rx="8" fill="#0B1626" stroke="#334E68" stroke-width="2"/>
+  <text x="72" y="172" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">1 · PYDANTIC / ZOD SCHEMA</text>
+  <text x="72" y="205" fill="#E2E8F0" font-family="IBM Plex Mono, monospace" font-size="12.5">class VendorVoucher(BaseModel):</text>
+  <text x="72" y="229" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="12">  vendor_id: str</text>
+  <text x="72" y="251" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="12">  gl_account: Literal[</text>
+  <text x="72" y="273" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">    "5100-COGS",</text>
+  <text x="72" y="295" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">    "5240-FREIGHT",</text>
+  <text x="72" y="317" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">    "6110-COLD-STORAGE"</text>
+  <text x="72" y="339" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="12">  ]</text>
+  <text x="72" y="361" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="12">  total_usd: Decimal</text>
+  <text x="72" y="383" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="12">  needs_review: bool</text>
+
+  <path d="M302 275 L348 275" stroke="#3B82F6" stroke-width="2.5"/>
+  <polygon points="348,270 358,275 348,280" fill="#3B82F6"/>
+
+  <rect x="358" y="140" width="260" height="270" rx="8" fill="#0B1626" stroke="#3B82F6" stroke-width="2"/>
+  <text x="378" y="172" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">2 · CONTEXT-FREE GRAMMAR MASK</text>
+  <text x="378" y="202" fill="#F8FAFC" font-size="16" font-weight="600">Logit Masking at Decode Step</text>
+  <text x="378" y="232" fill="#94A3B8" font-size="13">At each token step, the inference engine</text>
+  <text x="378" y="252" fill="#94A3B8" font-size="13">sets probability = 0 for any token that</text>
+  <text x="378" y="272" fill="#94A3B8" font-size="13">violates the compiled JSON grammar.</text>
+  <rect x="378" y="294" width="220" height="42" rx="4" fill="#132238" stroke="#10B981"/>
+  <text x="390" y="320" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">✓ "5240-FREIGHT" (Allowed)</text>
+  <rect x="378" y="346" width="220" height="42" rx="4" fill="#132238" stroke="#EF4444"/>
+  <text x="390" y="372" fill="#F87171" font-family="IBM Plex Mono, monospace" font-size="12">✕ "MISC-EXPENSE" (Masked -∞)</text>
+
+  <path d="M618 275 L664 275" stroke="#10B981" stroke-width="2.5"/>
+  <polygon points="664,270 674,275 664,280" fill="#10B981"/>
+
+  <rect x="674" y="140" width="234" height="270" rx="8" fill="#0B1626" stroke="#10B981" stroke-width="2"/>
+  <text x="694" y="172" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">3 · DOWNSTREAM ERP / SQL</text>
+  <text x="694" y="202" fill="#F8FAFC" font-size="16" font-weight="600">Deterministic Validation</text>
+  <text x="694" y="232" fill="#94A3B8" font-size="13">• Zero JSON parse exceptions</text>
+  <text x="694" y="256" fill="#94A3B8" font-size="13">• Zero hallucinated GL codes</text>
+  <text x="694" y="280" fill="#94A3B8" font-size="13">• Business-logic assertions</text>
+  <text x="694" y="302" fill="#94A3B8" font-size="13">  verify sum(lines) == total</text>
+  <text x="694" y="326" fill="#94A3B8" font-size="13">• Low-confidence rows route</text>
+  <text x="694" y="348" fill="#94A3B8" font-size="13">  to human review queue</text>
+</svg>

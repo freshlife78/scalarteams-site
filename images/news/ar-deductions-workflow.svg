@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="IBM Plex Sans, -apple-system, sans-serif">
+  <rect width="960" height="480" fill="#0B1626"/>
+  <rect x="24" y="24" width="912" height="432" rx="10" fill="#132238" stroke="#233854" stroke-width="2"/>
+  <text x="52" y="68" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" letter-spacing="1">WHOLESALE AR &amp; COLLECTIONS · DEDUCTION RECOVERY</text>
+  <text x="52" y="102" fill="#F8FAFC" font-size="24" font-weight="700">Automated Remittance Matching &amp; Short-Pay Dispute Packet Assembly</text>
+
+  <rect x="52" y="145" width="255" height="255" rx="8" fill="#0B1626" stroke="#334E68" stroke-width="2"/>
+  <text x="72" y="178" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">01 · RETAILER ACH REMITTANCE</text>
+  <text x="72" y="206" fill="#F8FAFC" font-size="16" font-weight="600">Batch Payment w/ Short-Pays</text>
+  <text x="72" y="236" fill="#94A3B8" font-size="13">• 150 invoices paid in 1 ACH batch</text>
+  <text x="72" y="260" fill="#94A3B8" font-size="13">• Code 02: Alleged case shortage</text>
+  <text x="72" y="284" fill="#94A3B8" font-size="13">• Code 14: Off-invoice promo</text>
+  <text x="72" y="308" fill="#94A3B8" font-size="13">• Code 59: On-time arrival fine</text>
+  <text x="72" y="346" fill="#FBBF24" font-family="IBM Plex Mono, monospace" font-size="12">30-Day Retailer Dispute Window</text>
+
+  <path d="M307 272 L353 272" stroke="#3B82F6" stroke-width="2.5"/>
+  <polygon points="353,267 363,272 353,277" fill="#3B82F6"/>
+
+  <rect x="363" y="145" width="265" height="255" rx="8" fill="#0B1626" stroke="#3B82F6" stroke-width="2"/>
+  <text x="383" y="178" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">02 · AUTOMATED PACKET BUILDER</text>
+  <text x="383" y="206" fill="#F8FAFC" font-size="16" font-weight="600">Cross-System Evidence Pull</text>
+  <text x="383" y="236" fill="#94A3B8" font-size="13">• Pulls ERP Invoice &amp; Sales Order</text>
+  <text x="383" y="260" fill="#94A3B8" font-size="13">• Retrieves carrier signed POD/BOL</text>
+  <text x="383" y="284" fill="#94A3B8" font-size="13">• Checks warehouse scale &amp; pick log</text>
+  <text x="383" y="308" fill="#94A3B8" font-size="13">• Matches trade-spend promo table</text>
+  <text x="383" y="346" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">Staged in &lt; 60 seconds per claim</text>
+
+  <path d="M628 272 L674 272" stroke="#10B981" stroke-width="2.5"/>
+  <polygon points="674,267 684,272 674,277" fill="#10B981"/>
+
+  <rect x="684" y="145" width="224" height="255" rx="8" fill="#0B1626" stroke="#10B981" stroke-width="2"/>
+  <text x="704" y="178" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">03 · AR SPECIALIST ACTION</text>
+  <text x="704" y="206" fill="#F8FAFC" font-size="16" font-weight="600">Resolution &amp; Recovery</text>
+  <text x="704" y="236" fill="#94A3B8" font-size="13">• Valid promo → Clear accrual</text>
+  <text x="704" y="260" fill="#94A3B8" font-size="13">• Invalid shortage w/ signed</text>
+  <text x="704" y="280" fill="#94A3B8" font-size="13">  full POD → Submit portal</text>
+  <text x="704" y="300" fill="#94A3B8" font-size="13">  dispute packet &amp; recover cash</text>
+  <text x="704" y="346" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">Zero missed dispute deadlines</text>
+</svg>
