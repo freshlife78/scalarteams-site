@@ -1,36 +1,106 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="IBM Plex Sans, -apple-system, sans-serif">
-  <rect width="960" height="480" fill="#0B1626"/>
-  <rect x="24" y="24" width="912" height="432" rx="10" fill="#132238" stroke="#233854" stroke-width="2"/>
-  <text x="52" y="68" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" letter-spacing="1">CROSS-BORDER SUPPLY CHAIN AI · PRE-ARRIVAL AUDIT</text>
-  <text x="52" y="102" fill="#F8FAFC" font-size="24" font-weight="700">Commercial Invoice, Packing List &amp; HTS Tariff Reconciliation</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1526"/>
+      <stop offset="100%" stop-color="#0F1E36"/>
+    </linearGradient>
+    <clipPath id="clipCol1"><rect x="64" y="160" width="332" height="372" rx="10"/></clipPath>
+    <clipPath id="clipCol2"><rect x="434" y="160" width="332" height="372" rx="10"/></clipPath>
+    <clipPath id="clipCol3"><rect x="804" y="160" width="332" height="372" rx="10"/></clipPath>
+  </defs>
 
-  <rect x="52" y="145" width="260" height="255" rx="8" fill="#0B1626" stroke="#334E68" stroke-width="2"/>
-  <text x="72" y="178" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">SHIPPER PACKET (LATAM / CANADA)</text>
-  <text x="72" y="206" fill="#F8FAFC" font-size="16" font-weight="600">Multi-Document Entry</text>
-  <text x="72" y="236" fill="#94A3B8" font-size="13">• Commercial Invoice (Spanish/EN)</text>
-  <text x="72" y="260" fill="#94A3B8" font-size="13">• Export Packing List (Net/Gross kg)</text>
-  <text x="72" y="284" fill="#94A3B8" font-size="13">• Certificate of Origin (USMCA/FTA)</text>
-  <text x="72" y="308" fill="#94A3B8" font-size="13">• USDA / FDA Prior Notice data</text>
+  <rect width="1200" height="600" fill="#070E1A"/>
+  <rect x="28" y="28" width="1144" height="544" rx="14" fill="url(#bgGrad)" stroke="#1E3452" stroke-width="2"/>
 
-  <path d="M312 272 L358 272" stroke="#3B82F6" stroke-width="2.5"/>
-  <polygon points="358,267 368,272 358,277" fill="#3B82F6"/>
+  <!-- Header -->
+  <rect x="64" y="58" width="415" height="26" rx="5" fill="#132847" stroke="#254675" stroke-width="1"/>
+  <text x="78" y="75" fill="#60A5FA" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" font-weight="600" letter-spacing="0.8">CROSS-BORDER SUPPLY CHAIN AI · PRE-ARRIVAL AUDIT</text>
+  <text x="64" y="118" fill="#F8FAFC" font-size="25" font-weight="700">Commercial Invoice, Packing List &amp; HTS Tariff Reconciliation</text>
+  <line x1="64" y1="138" x2="1136" y2="138" stroke="#1E3452" stroke-width="1.5"/>
 
-  <rect x="368" y="145" width="260" height="255" rx="8" fill="#0B1626" stroke="#3B82F6" stroke-width="2"/>
-  <text x="388" y="178" fill="#60A5FA" font-family="IBM Plex Mono, monospace" font-size="12">VERTICAL AI AUDIT ENGINE</text>
-  <text x="388" y="206" fill="#F8FAFC" font-size="16" font-weight="600">Pre-Border Discrepancy Check</text>
-  <text x="388" y="236" fill="#94A3B8" font-size="13">• Cross-checks carton count &amp; weight</text>
-  <text x="388" y="260" fill="#94A3B8" font-size="13">• Retrieves CBP CROSS ruling citations</text>
-  <text x="388" y="284" fill="#94A3B8" font-size="13">• Validates 10-digit HTSUS codes</text>
-  <text x="388" y="308" fill="#94A3B8" font-size="13">• Audits carrier fuel &amp; border fees</text>
+  <!-- Column 1 -->
+  <g clip-path="url(#clipCol1)">
+    <rect x="64" y="160" width="332" height="372" rx="10" fill="#0A1322" stroke="#2B4263" stroke-width="2"/>
+    <rect x="64" y="160" width="332" height="4" fill="#3B82F6"/>
+    <rect x="88" y="186" width="238" height="24" rx="4" fill="#12243F"/>
+    <text x="100" y="202" fill="#60A5FA" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600">01 · SHIPPER PACKET (LATAM / CA)</text>
+    <text x="88" y="240" fill="#F8FAFC" font-size="19" font-weight="700">Multi-Document Entry</text>
+    <line x1="88" y1="258" x2="372" y2="258" stroke="#1B2E4B" stroke-width="1"/>
 
-  <path d="M628 272 L674 272" stroke="#10B981" stroke-width="2.5"/>
-  <polygon points="674,267 684,272 674,277" fill="#10B981"/>
+    <circle cx="96" cy="292" r="4" fill="#60A5FA"/>
+    <text x="110" y="297" fill="#CBD5E1" font-size="14">Commercial Invoice (Spanish / EN)</text>
 
-  <rect x="684" y="145" width="224" height="255" rx="8" fill="#0B1626" stroke="#10B981" stroke-width="2"/>
-  <text x="704" y="178" fill="#34D399" font-family="IBM Plex Mono, monospace" font-size="12">LICENSED BROKER &amp; OPS</text>
-  <text x="704" y="206" fill="#F8FAFC" font-size="16" font-weight="600">Cleared Before Arrival</text>
-  <text x="704" y="236" fill="#94A3B8" font-size="13">• Corrects shipper typos early</text>
-  <text x="704" y="260" fill="#94A3B8" font-size="13">• Prevents border cold-chain holds</text>
-  <text x="704" y="284" fill="#94A3B8" font-size="13">• Broker signs off on Form 7501</text>
-  <text x="704" y="308" fill="#94A3B8" font-size="13">• Landed cost syncs to ERP</text>
+    <circle cx="96" cy="332" r="4" fill="#60A5FA"/>
+    <text x="110" y="337" fill="#CBD5E1" font-size="14">Export Packing List (Net / Gross kg)</text>
+
+    <circle cx="96" cy="372" r="4" fill="#60A5FA"/>
+    <text x="110" y="377" fill="#CBD5E1" font-size="14">Certificate of Origin (USMCA / FTA)</text>
+
+    <circle cx="96" cy="412" r="4" fill="#60A5FA"/>
+    <text x="110" y="417" fill="#CBD5E1" font-size="14">USDA / FDA Prior Notice filing data</text>
+
+    <rect x="88" y="472" width="284" height="34" rx="6" fill="#0F1D33"/>
+    <text x="104" y="494" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5">Ingested 24h prior to port arrival</text>
+  </g>
+  <rect x="64" y="160" width="332" height="372" rx="10" fill="none" stroke="#2B4263" stroke-width="2"/>
+
+  <!-- Arrow 1 -->
+  <line x1="396" y1="346" x2="424" y2="346" stroke="#3B82F6" stroke-width="2.5"/>
+  <polygon points="424,340 434,346 424,352" fill="#3B82F6"/>
+
+  <!-- Column 2 -->
+  <g clip-path="url(#clipCol2)">
+    <rect x="434" y="160" width="332" height="372" rx="10" fill="#0A1322" stroke="#3B82F6" stroke-width="2"/>
+    <rect x="434" y="160" width="332" height="4" fill="#60A5FA"/>
+    <rect x="458" y="186" width="214" height="24" rx="4" fill="#152C4F"/>
+    <text x="470" y="202" fill="#60A5FA" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600">02 · VERTICAL AI AUDIT ENGINE</text>
+    <text x="458" y="240" fill="#F8FAFC" font-size="19" font-weight="700">Pre-Border Discrepancy Check</text>
+    <line x1="458" y1="258" x2="742" y2="258" stroke="#1B2E4B" stroke-width="1"/>
+
+    <circle cx="466" cy="292" r="4" fill="#60A5FA"/>
+    <text x="480" y="297" fill="#CBD5E1" font-size="14">Cross-checks carton count &amp; weight</text>
+
+    <circle cx="466" cy="332" r="4" fill="#60A5FA"/>
+    <text x="480" y="337" fill="#CBD5E1" font-size="14">Retrieves CBP CROSS ruling citations</text>
+
+    <circle cx="466" cy="372" r="4" fill="#60A5FA"/>
+    <text x="480" y="377" fill="#CBD5E1" font-size="14">Validates 10-digit HTSUS tariff codes</text>
+
+    <circle cx="466" cy="412" r="4" fill="#60A5FA"/>
+    <text x="480" y="417" fill="#CBD5E1" font-size="14">Audits carrier fuel &amp; border fees</text>
+
+    <rect x="458" y="472" width="284" height="34" rx="6" fill="#12243F" stroke="#1E3A8A" stroke-width="1"/>
+    <text x="474" y="494" fill="#60A5FA" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5">Flags mismatches before customs entry</text>
+  </g>
+  <rect x="434" y="160" width="332" height="372" rx="10" fill="none" stroke="#3B82F6" stroke-width="2"/>
+
+  <!-- Arrow 2 -->
+  <line x1="766" y1="346" x2="794" y2="346" stroke="#10B981" stroke-width="2.5"/>
+  <polygon points="794,340 804,346 794,352" fill="#10B981"/>
+
+  <!-- Column 3 -->
+  <g clip-path="url(#clipCol3)">
+    <rect x="804" y="160" width="332" height="372" rx="10" fill="#0A1322" stroke="#10B981" stroke-width="2"/>
+    <rect x="804" y="160" width="332" height="4" fill="#10B981"/>
+    <rect x="828" y="186" width="204" height="24" rx="4" fill="#0D2E2B"/>
+    <text x="840" y="202" fill="#34D399" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600">03 · LICENSED BROKER &amp; OPS</text>
+    <text x="828" y="240" fill="#F8FAFC" font-size="19" font-weight="700">Cleared Before Arrival</text>
+    <line x1="828" y1="258" x2="1112" y2="258" stroke="#1B2E4B" stroke-width="1"/>
+
+    <circle cx="836" cy="292" r="4" fill="#34D399"/>
+    <text x="850" y="297" fill="#CBD5E1" font-size="14">Corrects shipper document typos early</text>
+
+    <circle cx="836" cy="332" r="4" fill="#34D399"/>
+    <text x="850" y="337" fill="#CBD5E1" font-size="14">Prevents border cold-chain demurrage</text>
+
+    <circle cx="836" cy="372" r="4" fill="#34D399"/>
+    <text x="850" y="377" fill="#CBD5E1" font-size="14">Licensed broker signs CBP Form 7501</text>
+
+    <circle cx="836" cy="412" r="4" fill="#34D399"/>
+    <text x="850" y="417" fill="#CBD5E1" font-size="14">Exact landed duty cost syncs to ERP</text>
+
+    <rect x="828" y="472" width="284" height="34" rx="6" fill="#0D2E2B" stroke="#065F46" stroke-width="1"/>
+    <text x="844" y="494" fill="#34D399" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5">✓ Full audit trail &amp; broker sign-off</text>
+  </g>
+  <rect x="804" y="160" width="332" height="372" rx="10" fill="none" stroke="#10B981" stroke-width="2"/>
 </svg>
