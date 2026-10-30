@@ -1,33 +1,48 @@
 # scalarteams.com
 
-The website for **Scalar Teams**: nearshore senior AI engineers, quoted in writing within one business day.
+Static website for **Scalar Teams**, hosted on GitHub Pages (`scalarteams.com`) with no build step.
 
-It is a single static page served by GitHub Pages. There is no build step.
+## Pages & Structure
 
-## Files
+| Path | File | Description |
+| :--- | :--- | :--- |
+| `/` | `index.html` | Homepage: positioning, two audience doors (Finance & Accounting first, Senior AI Engineers second), 3-step process, founder block |
+| `/finance-accounting/` | `finance-accounting/index.html` | Landing page for controllers, CFOs, and operators at distributors, importers, wholesalers, and 3PLs |
+| `/hire-ai-engineers/` | `hire-ai-engineers/index.html` | Google Ads landing page for CTOs, VPs of Engineering, and Heads of AI hiring Senior AI Engineers |
+| `/about/` | `about/index.html` | Founder story (Eduardo Polo, CPA), Ecuador Employer of Record office, Canada + LatAm talent pool |
+| `/request-a-quote/` | `request-a-quote/index.html` | Standalone quote request form with automatic landing-page and UTM capture |
+| `/thank-you/` | `thank-you/index.html` | Post-submission confirmation page that fires the Google Ads conversion tag |
+| `/sitemap.xml` | `sitemap.xml` | XML sitemap for search engines |
+| `/robots.txt` | `robots.txt` | Crawler rules explicitly allowing `GPTBot`, `ClaudeBot`, and `PerplexityBot` |
+| `/llms.txt` | `llms.txt` | Structured Markdown overview for AI search engines and LLM assistants |
 
-| File | What it does |
-|---|---|
-| `index.html` | The whole site: copy, styles and the quote form |
-| `favicon.svg` | The browser-tab icon (the Scalar Teams mark) |
-| `CNAME` | Tells GitHub Pages to serve the site at `scalarteams.com` |
-| `.nojekyll` | Tells GitHub Pages to serve the files as they are, without Jekyll |
-| `README.md` | This file |
+---
 
-## Quote form
+## Placeholders You Need to Fill
 
-The form posts to [Formspree](https://formspree.io), which emails each submission to hello@scalarteams.com.
+Before running live traffic, search for and replace these three sets of placeholders:
 
-To connect it, open `index.html`, find `YOUR_FORM_ID` and replace it with the form's ID (the part after `/f/` in the Formspree endpoint). Until then, the form shows an error asking visitors to email hello@scalarteams.com instead.
+### 1. Form Backend Endpoint (`FORM_ENDPOINT`)
+The quote form appears on three pages and posts to `https://formspree.io/f/FORM_ENDPOINT` (or any static form backend URL you prefer). Replace `FORM_ENDPOINT` (e.g., with your Formspree ID `mrpenlvo`) in:
+- `finance-accounting/index.html` (line 289)
+- `hire-ai-engineers/index.html` (line 268)
+- `request-a-quote/index.html` (line 81)
 
-## Hosting
+> Note: `site.js` checks whether `FORM_ENDPOINT` has been replaced; once swapped, successful submissions automatically redirect visitors to `/thank-you/`.
 
-- **GitHub Pages:** Settings → Pages → Deploy from a branch → `main` / `(root)`. Custom domain `scalarteams.com`, with Enforce HTTPS on.
-- **DNS (Squarespace Domains):**
-  - `A @` → 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
-  - `CNAME www` → freshlife78.github.io
-  - MX, SPF, DKIM and DMARC records belong to Google Workspace email. Leave them alone when changing the website.
+### 2. Google Ads Conversion ID & Label (`AW-XXXXXXX` / `LABEL`)
+Open `thank-you/index.html` (lines 17–28) and replace:
+- `AW-XXXXXXX` with your Google Ads Conversion ID (appears in the `<script src>` URL and `gtag('config', ...)`).
+- `AW-XXXXXXX/LABEL` with your specific Google Ads conversion event `send_to` string.
 
-## Editing
+### 3. Social Proof & Visual Proof (`<!-- TODO -->` Comments)
+No client logos, testimonials, or statistics were invented. Once you have approved proof points, replace these HTML comments:
+- `index.html` (line 123): `<!-- TODO: Add client logos, controller/CTO quotes, or case studies once approved for publication -->`
+- `finance-accounting/index.html` (line 244): `<!-- TODO: Add controller/CFO testimonials or distribution case studies once approved for publication -->`
+- `hire-ai-engineers/index.html` (line 221): `<!-- TODO: Add CTO/VP Engineering quotes or technical placement proof points once approved for publication -->`
+- `about/index.html` (line 110): `<!-- TODO: Add founder portrait and Ecuador office photos once approved for publication -->`
 
-Open `index.html` on GitHub, click the pencil icon, make the change and commit. The live site updates within a few minutes.
+---
+
+## Hosting & DNS (Unchanged)
+- **GitHub Pages:** Deployed from `main` branch `(root)` with `.nojekyll` and `CNAME` (`scalarteams.com`).

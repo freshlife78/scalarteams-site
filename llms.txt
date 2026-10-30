@@ -1,0 +1,33 @@
+# Scalar Teams
+
+> Scalar Teams places full-time, vetted finance, accounting, logistics, and senior AI engineering talent from Latin America and Canada with US and Canadian companies. Talent is hired and employed through our office in Ecuador (acting as Employer of Record) and billed monthly in advance in USD.
+
+## What We Do
+Scalar Teams recruits, evaluates, and employs dedicated full-time professionals for US and Canadian companies across two core practices:
+
+1. **Finance, Accounting & Logistics Operations (`/finance-accounting/`):**
+   - **Roles Placed:** Staff & Senior Accountants, Accounts Payable (AP) Specialists, Accounts Receivable (AR) & Collections Specialists, Full-Charge Bookkeepers, and Freight & Logistics Coordinators.
+   - **Who We Serve:** Controllers, VPs of Finance, CFOs, and owners at US and Canadian distributors, importers, wholesalers, and 3PLs ($10M–$150M revenue, 30–300 staff).
+   - **How We Vet:** Practical US GAAP and operational workflow testing (three-way PO matching, vendor bills, freight invoices, inventory/COGS accruals, collections), ERP/accounting software checks (QuickBooks, NetSuite, Excel), live spoken/written English assessment, and government photo ID verification.
+   - **Controls & Security:** Staff operate inside client systems under least-privilege access with segregation of duties and no unsupervised bank or wire release authority.
+
+2. **Senior AI & LLM Engineers (`/hire-ai-engineers/`):**
+   - **Roles Placed:** Senior AI / LLM Engineers (RAG, agents, evaluation harnesses), Machine Learning Engineers, Full-Stack AI Product Engineers, and Data Engineers.
+   - **Who We Serve:** CTOs, VPs of Engineering, and Heads of AI at US and Canadian software companies (Series A–C, 20–250 staff) shipping production LLM systems.
+   - **How We Vet:** Fraud-proof live video identity verification against government ID, live code walkthroughs of production RAG/agent/eval systems with mid-session requirement changes, direct manager reference checks, and verification of 6+ hours of daily US Pacific time-zone overlap.
+
+## Leadership & Employment Model
+- **Founder:** Eduardo Polo, CPA (Ecuador), based in British Columbia, Canada. Bilingual English/Spanish with 25 years of experience running physical operations including wholesale distribution, cross-border perishable supply chains, and refrigerated freight.
+- **Employment & Billing:** Talent is hired and employed through our Ecuador office (Employer of Record) and across our Latin America and Canada network. Clients receive one monthly invoice billed in advance in USD.
+- **Pricing:** Quotes are provided on request in writing by email—no discovery or sales call is required.
+
+## Key Pages
+- [Home](https://scalarteams.com/): Overview and two practice areas (Finance & Accounting Teams, Senior AI Engineers).
+- [Finance & Accounting Teams](https://scalarteams.com/finance-accounting/): Vetting, roles, internal controls, and quote form for controllers and CFOs.
+- [Hire Senior AI Engineers](https://scalarteams.com/hire-ai-engineers/): Fraud-proof vetting, production LLM evaluations, and quote form for CTOs and engineering leaders.
+- [About Scalar Teams](https://scalarteams.com/about/): Founder background, Ecuador Employer of Record office, and Canada + Latin America talent pool.
+- [Request a Written Quote](https://scalarteams.com/request-a-quote/): Online quote request form.
+
+## How to Request a Quote
+- **Web Form:** Submit role requirements, number of seats, and target start date at https://scalarteams.com/request-a-quote/ (or via the embedded form on `/finance-accounting/` and `/hire-ai-engineers/`).
+- **Direct Email:** hello@scalarteams.com
