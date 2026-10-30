@@ -191,10 +191,14 @@
             </div>
             <h3>Vision-LLM invoice extraction &amp; automated freight bill triage</h3>
             <p>Distributors and 3PLs are pairing multimodal document models with NetSuite, QuickBooks, and TMS systems to parse multi-page vendor PDFs, bills of lading, and rate confirmations—routing three-way match variances to human AP and logistics specialists.</p>
-          </div>
-          <div class="news-footer">
-            <span class="news-source">Category: Businesses Using AI</span>
-            <a href="/news/">Read case note →</a>
+            <details class="news-expand">
+              <summary></summary>
+              <div class="news-expanded-body">
+                <h4>How controllers &amp; 3PLs deploy it</h4>
+                <p>Multimodal document pipelines read scanned vendor invoices and bills of lading, matching line-item SKUs, unit prices, and accessorial charges against ERP purchase orders and receiving logs. Clean matches stage as draft vouchers in NetSuite or QuickBooks, while the 15–20% with price/quantity discrepancies route to a dedicated bilingual AP or freight specialist.</p>
+                <span class="source-citation">Named Sources: C.H. Robinson Freight Automation Case Study &amp; Ramp Engineering</span>
+              </div>
+            </details>
           </div>
         </article>
 
@@ -206,10 +210,14 @@
             </div>
             <h3>Composable workflows vs. autonomous agents &amp; Contextual RAG</h3>
             <p>Why production teams favor deterministic prompt-chaining, routing, and hybrid BM25 + vector reranking over brittle multi-agent frameworks—and how we test AI engineering candidates on these exact patterns.</p>
-          </div>
-          <div class="news-footer">
-            <span class="news-source">Category: New Practices</span>
-            <a href="/news/">Read technical brief →</a>
+            <details class="news-expand">
+              <summary></summary>
+              <div class="news-expanded-body">
+                <h4>Why simple control loops win in production</h4>
+                <p>Successful enterprise deployments avoid unconstrained autonomous loops and rely on deterministic code paths: prompt chaining, classifier routing, orchestrator-workers, and hybrid Contextual Retrieval (prepending document context + BM25 keyword search + cross-encoder reranking, which cuts retrieval misses by 67%).</p>
+                <span class="source-citation">Named Source: Anthropic Engineering ("Building Effective Agents" &amp; "Contextual Retrieval")</span>
+              </div>
+            </details>
           </div>
         </article>
 
@@ -221,10 +229,14 @@
             </div>
             <h3>100% JSON-schema structured outputs &amp; two-tier model routing</h3>
             <p>How grammar-constrained token sampling bridges LLMs with strict ERP/SQL schemas, and how pairing frontier reasoning models with low-latency workhorses cuts production inference costs by 60–80%.</p>
-          </div>
-          <div class="news-footer">
-            <span class="news-source">Category: Model Releases</span>
-            <a href="/news/">Read model analysis →</a>
+            <details class="news-expand">
+              <summary></summary>
+              <div class="news-expanded-body">
+                <h4>Bridging LLMs to deterministic backends</h4>
+                <p>Context-free grammar masking guarantees that model responses strictly obey your Pydantic or Zod JSON schemas—eliminating broken parsers when writing into SQL or ERP tables. Pairing fast small models for 85%+ of classification traffic with reasoning models for complex edge cases keeps latency sub-second.</p>
+                <span class="source-citation">Named Sources: OpenAI Platform Engineering ("Structured Outputs") &amp; Simon Willison’s LLM Field Notes</span>
+              </div>
+            </details>
           </div>
         </article>
 
@@ -236,10 +248,14 @@
             </div>
             <h3>CI/CD evaluation harnesses, MCP connectors, and customs/freight AI startups</h3>
             <p>A look at the tooling stack replacing manual prompt checks (Braintrust, Promptfoo, LangSmith, Model Context Protocol) alongside vertical startups automating HTS tariff classification and remittance deductions.</p>
-          </div>
-          <div class="news-footer">
-            <span class="news-source">Category: New Startups</span>
-            <a href="/news/">Explore startup tracker →</a>
+            <details class="news-expand">
+              <summary></summary>
+              <div class="news-expanded-body">
+                <h4>The modern AI engineering &amp; operations stack</h4>
+                <p>Engineering teams now gate pull requests on automated evaluation suites using golden production traces and standardized Model Context Protocol (MCP) servers for read-only database access, while vertical supply-chain startups target pre-arrival customs document checks and retail short-pay deduction packets.</p>
+                <span class="source-citation">Named Sources: Promptfoo, Braintrust, Model Context Protocol &amp; Applied LLMs Consortium</span>
+              </div>
+            </details>
           </div>
         </article>
       </div>

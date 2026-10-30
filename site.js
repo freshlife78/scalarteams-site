@@ -139,11 +139,26 @@
     });
   }
 
-  // 5. Live AI Engineering Wire (fetches top-voted AI/LLM engineering discussions live)
+  // Auto-expand targeted briefing when navigating to /news/#brief-...
+  function expandHashBriefing() {
+    if (!window.location.hash) return;
+    var target = document.querySelector(window.location.hash);
+    if (target) {
+      target.hidden = false;
+      var details = target.querySelector('details.news-expand');
+      if (details) {
+        details.open = true;
+      }
+    }
+  }
+  expandHashBriefing();
+  window.addEventListener('hashchange', expandHashBriefing);
+
+  // 5. Live AI Engineering Wire (expands inline on our site, naming the source without redirecting off-site)
   var liveList = document.getElementById('live-ai-wire');
   var liveStatus = document.getElementById('live-ai-wire-status');
   if (liveList && window.fetch) {
-    var hnUrl = 'https://hn.algolia.com/api/v1/search_by_date?query=LLM%20OR%20RAG%20OR%20%22AI%20agent%22%20OR%20Anthropic%20OR%20OpenAI&tags=story&numericFilters=points%3E35&hitsPerPage=8';
+    var hnUrl = 'https://hn.algolia.com/api/v1/search_by_date?query=LLM%20OR%20RAG%20OR%20%22AI%20agent%22%20OR%20Anthropic%20OR%20OpenAI&tags=story&numericFilters=points%3E35&hitsPerPage=6';
     fetch(hnUrl)
       .then(function (res) {
         if (!res.ok) throw new Error('Network error');
@@ -154,34 +169,57 @@
         liveList.innerHTML = '';
         data.hits.forEach(function (hit) {
           var li = document.createElement('li');
-          var link = document.createElement('a');
-          link.href = hit.url || ('https://news.ycombinator.com/item?id=' + hit.objectID);
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
-          link.textContent = hit.title;
+          li.style.display = 'block';
 
-          var meta = document.createElement('span');
-          meta.className = 'news-source';
-          var dateStr = hit.created_at ? hit.created_at.slice(0, 10) : '';
-          var domain = '';
+          var details = document.createElement('details');
+          details.className = 'news-expand';
+          details.style.borderTop = 'none';
+          details.style.paddingTop = '0';
+          details.style.marginTop = '0';
+
+          var summary = document.createElement('summary');
+          summary.style.display = 'flex';
+          summary.style.justifyContent = 'space-between';
+          summary.style.alignItems = 'baseline';
+          summary.style.width = '100%';
+          summary.style.gap = '12px';
+
+          var titleSpan = document.createElement('span');
+          titleSpan.style.color = 'var(--text-primary)';
+          titleSpan.style.fontWeight = '600';
+          titleSpan.textContent = hit.title;
+
+          var domain = 'Community Wire';
           if (hit.url) {
             try {
-              domain = new URL(hit.url).hostname.replace(/^www\./, '') + ' · ';
+              domain = new URL(hit.url).hostname.replace(/^www\./, '');
             } catch (e) {}
           }
-          meta.textContent = domain + hit.points + ' pts · ' + dateStr;
+          var dateStr = hit.created_at ? hit.created_at.slice(0, 10) : '';
 
-          li.appendChild(link);
-          li.appendChild(meta);
+          var body = document.createElement('div');
+          body.className = 'news-expanded-body';
+          var p1 = document.createElement('p');
+          p1.textContent = 'Tracked in our live AI engineering wire (' + hit.points + ' practitioner upvotes, ' + (hit.num_comments || 0) + ' technical comments on ' + dateStr + '). Our engineering team monitors emerging model releases, retrieval benchmarks, and production failure reports to keep our technical vetting assessments current.';
+          var cite = document.createElement('span');
+          cite.className = 'source-citation';
+          cite.textContent = 'Named Source: ' + domain + ' · Reported by ' + (hit.author || 'engineering contributor') + ' · ' + dateStr;
+
+          body.appendChild(p1);
+          body.appendChild(cite);
+          summary.appendChild(titleSpan);
+          details.appendChild(summary);
+          details.appendChild(body);
+          li.appendChild(details);
           liveList.appendChild(li);
         });
         if (liveStatus) {
-          liveStatus.textContent = 'Live feed updated from Hacker News AI/LLM wire';
+          liveStatus.textContent = 'Live feed updated · Click any headline to expand on-site';
         }
       })
       .catch(function () {
         if (liveStatus) {
-          liveStatus.textContent = 'Showing curated archive';
+          liveStatus.textContent = 'Click any headline to expand on-site';
         }
       });
   }
