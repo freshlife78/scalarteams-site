@@ -25,6 +25,7 @@ Scalar Teams recruits, evaluates, and employs dedicated full-time professionals 
 - [Home](https://scalarteams.com/): Overview and two practice areas (Finance & Accounting Teams, Senior AI Engineers).
 - [Finance & Accounting Teams](https://scalarteams.com/finance-accounting/): Vetting, roles, internal controls, and quote form for controllers and CFOs.
 - [Hire Senior AI Engineers](https://scalarteams.com/hire-ai-engineers/): Fraud-proof vetting, production LLM evaluations, and quote form for CTOs and engineering leaders.
+- [Practical AI Briefing & News](https://scalarteams.com/news/): Curated field notes and live engineering feed covering practical AI business cases, model releases, RAG/eval practices, and emerging AI startups.
 - [About Scalar Teams](https://scalarteams.com/about/): Founder background, Ecuador Employer of Record office, and Canada + Latin America talent pool.
 - [Request a Written Quote](https://scalarteams.com/request-a-quote/): Online quote request form.
 

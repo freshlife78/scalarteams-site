@@ -116,4 +116,73 @@
         });
     });
   });
+
+  // 4. AI Briefing & News Category Filter
+  var filterBtns = document.querySelectorAll('[data-news-filter]');
+  var newsCards = document.querySelectorAll('[data-news-category]');
+  if (filterBtns.length > 0 && newsCards.length > 0) {
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var selected = btn.getAttribute('data-news-filter');
+        filterBtns.forEach(function (b) {
+          b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+        });
+        newsCards.forEach(function (card) {
+          var cat = card.getAttribute('data-news-category');
+          if (selected === 'all' || cat === selected) {
+            card.hidden = false;
+          } else {
+            card.hidden = true;
+          }
+        });
+      });
+    });
+  }
+
+  // 5. Live AI Engineering Wire (fetches top-voted AI/LLM engineering discussions live)
+  var liveList = document.getElementById('live-ai-wire');
+  var liveStatus = document.getElementById('live-ai-wire-status');
+  if (liveList && window.fetch) {
+    var hnUrl = 'https://hn.algolia.com/api/v1/search_by_date?query=LLM%20OR%20RAG%20OR%20%22AI%20agent%22%20OR%20Anthropic%20OR%20OpenAI&tags=story&numericFilters=points%3E35&hitsPerPage=8';
+    fetch(hnUrl)
+      .then(function (res) {
+        if (!res.ok) throw new Error('Network error');
+        return res.json();
+      })
+      .then(function (data) {
+        if (!data || !data.hits || data.hits.length === 0) return;
+        liveList.innerHTML = '';
+        data.hits.forEach(function (hit) {
+          var li = document.createElement('li');
+          var link = document.createElement('a');
+          link.href = hit.url || ('https://news.ycombinator.com/item?id=' + hit.objectID);
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = hit.title;
+
+          var meta = document.createElement('span');
+          meta.className = 'news-source';
+          var dateStr = hit.created_at ? hit.created_at.slice(0, 10) : '';
+          var domain = '';
+          if (hit.url) {
+            try {
+              domain = new URL(hit.url).hostname.replace(/^www\./, '') + ' · ';
+            } catch (e) {}
+          }
+          meta.textContent = domain + hit.points + ' pts · ' + dateStr;
+
+          li.appendChild(link);
+          li.appendChild(meta);
+          liveList.appendChild(li);
+        });
+        if (liveStatus) {
+          liveStatus.textContent = 'Live feed updated from Hacker News AI/LLM wire';
+        }
+      })
+      .catch(function () {
+        if (liveStatus) {
+          liveStatus.textContent = 'Showing curated archive';
+        }
+      });
+  }
 })();

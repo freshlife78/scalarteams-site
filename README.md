@@ -9,6 +9,7 @@ Static website for **Scalar Teams**, hosted on GitHub Pages (`scalarteams.com`) 
 | `/` | `index.html` | Homepage: positioning, two audience doors (Finance & Accounting first, Senior AI Engineers second), 3-step process, founder block |
 | `/finance-accounting/` | `finance-accounting/index.html` | Landing page for controllers, CFOs, and operators at distributors, importers, wholesalers, and 3PLs |
 | `/hire-ai-engineers/` | `hire-ai-engineers/index.html` | Google Ads landing page for CTOs, VPs of Engineering, and Heads of AI hiring Senior AI Engineers |
+| `/news/` | `news/index.html` | Practical AI Briefing & live engineering feed: business case studies, model releases, engineering practices, and AI startups |
 | `/about/` | `about/index.html` | Founder story (Eduardo Polo, CPA), Ecuador Employer of Record office, Canada + LatAm talent pool |
 | `/request-a-quote/` | `request-a-quote/index.html` | Standalone quote request form with automatic landing-page and UTM capture |
 | `/thank-you/` | `thank-you/index.html` | Post-submission confirmation page that fires the Google Ads conversion tag |
