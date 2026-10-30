@@ -24,8 +24,8 @@ Before running live traffic, search for and replace these three sets of placehol
 
 ### 1. Form Backend Endpoint (`FORM_ENDPOINT`)
 The quote form appears on three pages and posts to `https://formspree.io/f/FORM_ENDPOINT` (or any static form backend URL you prefer). Replace `FORM_ENDPOINT` (e.g., with your Formspree ID `mrpenlvo`) in:
-- `finance-accounting/index.html` (line 289)
-- `hire-ai-engineers/index.html` (line 268)
+- `finance-accounting/index.html` (line 299)
+- `hire-ai-engineers/index.html` (line 280)
 - `request-a-quote/index.html` (line 81)
 
 > Note: `site.js` checks whether `FORM_ENDPOINT` has been replaced; once swapped, successful submissions automatically redirect visitors to `/thank-you/`.
@@ -37,10 +37,10 @@ Open `thank-you/index.html` (lines 17–28) and replace:
 
 ### 3. Social Proof & Visual Proof (`<!-- TODO -->` Comments)
 No client logos, testimonials, or statistics were invented. Once you have approved proof points, replace these HTML comments:
-- `index.html` (line 123): `<!-- TODO: Add client logos, controller/CTO quotes, or case studies once approved for publication -->`
-- `finance-accounting/index.html` (line 244): `<!-- TODO: Add controller/CFO testimonials or distribution case studies once approved for publication -->`
-- `hire-ai-engineers/index.html` (line 221): `<!-- TODO: Add CTO/VP Engineering quotes or technical placement proof points once approved for publication -->`
-- `about/index.html` (line 110): `<!-- TODO: Add founder portrait and Ecuador office photos once approved for publication -->`
+- `index.html` (line 129): `<!-- TODO: Add client logos, controller/CTO quotes, or case studies once approved for publication -->`
+- `finance-accounting/index.html` (line 254): `<!-- TODO: Add controller/CFO testimonials or distribution case studies once approved for publication -->`
+- `hire-ai-engineers/index.html` (line 233): `<!-- TODO: Add CTO/VP Engineering quotes or technical placement proof points once approved for publication -->`
+- `about/index.html` (line 120): `<!-- TODO: Add founder portrait and Ecuador office photos once approved for publication -->`
 
 ---
 
