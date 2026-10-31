@@ -1,6 +1,6 @@
 # scalarteams.com
 
-The website for **Scalar Teams**: nearshore senior AI engineers, quoted in writing within one business day.
+The website for **Scalar Teams**: flow audits that map how a distributor, wholesaler or logistics company really runs, then a full-time bilingual engineer in the client's time zone who automates the manual work. Scope and fee are quoted in writing within one business day.
 
 It is a single static page served by GitHub Pages. There is no build step.
 
@@ -16,9 +16,11 @@ It is a single static page served by GitHub Pages. There is no build step.
 
 ## Quote form
 
-The form posts to [Formspree](https://formspree.io), which emails each submission to hello@scalarteams.com.
+The form (`#quote-form`) posts to [Formspree](https://formspree.io) form `mrpenlvo`, which emails each submission to hello@scalarteams.com. It sends: name, email, company, industry, interest and brief.
 
-To connect it, open `index.html`, find `YOUR_FORM_ID` and replace it with the form's ID (the part after `/f/` in the Formspree endpoint). Until then, the form shows an error asking visitors to email hello@scalarteams.com instead.
+On success the script hides the form and shows `#quote-thanks` inside the `if (res.ok)` branch. That's where the Google Ads conversion call goes once the conversion action exists (see the build sheet).
+
+Section anchors used by ad sitelinks: `#how`, `#roles` (what we automate), `#vetting` (the engineers), `#pricing`, `#faq`, `#quote`.
 
 ## Hosting
 
