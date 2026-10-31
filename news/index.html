@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Practical AI Briefing: Business Cases, Model Releases &amp; Engineering Practices — Scalar Teams</title>
+<meta name="description" content="In-depth field notes on how distribution, finance, and software companies use AI in production: practical business cases, model releases, RAG/eval practices, and emerging AI startups.">
+<link rel="canonical" href="https://scalarteams.com/news/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scalar Teams">
+<meta property="og:url" content="https://scalarteams.com/news/">
+<meta property="og:title" content="Practical AI Briefing: Business Cases, Model Releases &amp; Engineering Practices — Scalar Teams">
+<meta property="og:description" content="How real businesses use AI in accounting, freight logistics, and production software—plus model releases, new engineering practices, and AI startups.">
+<meta name="theme-color" content="#1E2422">
+<link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&display=swap">
+<link rel="stylesheet" href="/styles.css?v=8">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Practical AI Briefing — Scalar Teams",
+  "url": "https://scalarteams.com/news/",
+  "description": "Curated practical AI case studies in finance, supply chain, and software engineering, alongside model releases, production LLM practices, and startup intelligence.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scalar Teams",
+    "url": "https://scalarteams.com/"
+  }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Scalar Teams home">
+      <svg aria-hidden="true" width="30" height="30" viewBox="0 0 40 40"><rect x="4" y="4" width="21" height="21" fill="none" stroke="#1E2422" stroke-width="3.5"/><rect x="15" y="15" width="21" height="21" fill="none" stroke="#1E2422" stroke-width="3.5"/><rect x="15" y="15" width="10" height="10" fill="#F0A81C"/></svg>
+      <span class="brand-name">Scalar Teams</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Main">
+      <a class="nav-link" href="/#how">How it works</a>
+      <a class="nav-link" href="/#roles">What we automate</a>
+      <a class="nav-link" href="/finance-accounting/">Finance &amp; accounting</a>
+      <a class="nav-link" href="/hire-ai-engineers/">AI engineers</a>
+      <a class="nav-link" href="/news/" aria-current="page">AI briefing</a>
+      <a class="nav-link" href="/about/">About</a>
+      <a class="nav-cta" href="/request-a-quote/">Request a flow audit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- Hero -->
+  <section class="wrap hero">
+    <p class="eyebrow">AI Intelligence &amp; Field Notes</p>
+    <h1>Practical AI in business: real production cases, model releases, and engineering practices.</h1>
+    <p class="lead">We track how companies move AI out of slide decks and into daily operations—covering freight and accounting automation, production LLM engineering patterns, foundation model releases, and applied AI startups. Grade any article with <strong>Like</strong> or <strong>Not for me</strong> to train the publishing bot on what to curate next.</p>
+
+    <!-- Publishing Bot Curation & Learning Dashboard -->
+    <div id="curation-dashboard" class="curation-panel" aria-live="polite">
+      <div class="curation-panel-top">
+        <div>
+          <h2>Publishing Bot Curation Trainer</h2>
+          <p id="curation-summary-text">Grade articles below with <strong>👍 Like</strong> or <strong>👎 Not for me</strong>. The publishing bot learns your preferred topics, categories, and sources to rank and curate future briefings.</p>
+        </div>
+        <div class="grade-actions">
+          <button type="button" class="filter-btn" id="btn-sort-curated" aria-pressed="false">Sort by Bot Match Score</button>
+          <button type="button" class="grade-btn" id="btn-export-curation" title="Download learned preferences JSON for the publishing bot">⬇ Export Bot Profile (.json)</button>
+          <button type="button" class="grade-btn" id="btn-reset-curation" title="Clear saved likes and dislikes">Reset</button>
+        </div>
+      </div>
+      <div id="curation-learned-tags" class="curation-tags" hidden></div>
+    </div>
+
+    <div class="filter-bar" role="toolbar" aria-label="Filter news by category">
+      <button type="button" class="filter-btn" data-news-filter="all" aria-pressed="true">All Briefings (12)</button>
+      <button type="button" class="filter-btn" data-news-filter="cases" aria-pressed="false">Businesses Using AI &amp; Cases</button>
+      <button type="button" class="filter-btn" data-news-filter="practices" aria-pressed="false">New Engineering Practices</button>
+      <button type="button" class="filter-btn" data-news-filter="models" aria-pressed="false">Model Releases</button>
+      <button type="button" class="filter-btn" data-news-filter="startups" aria-pressed="false">Startups &amp; Tooling</button>
+      <button type="button" class="filter-btn" data-news-filter="liked" aria-pressed="false">👍 Liked Only</button>
+    </div>
+
+    <div id="news-grid-container" class="news-grid">
+
+      <!-- 1. Practical Case: Freight & Logistics -->
+      <article id="brief-freight-triage" class="news-card" data-curation-item data-news-category="cases" data-article-slug="freight-quote-bol-triage" data-article-title="Automated freight quote &amp; bill-of-lading triage in high-volume 3PL inboxes" data-article-topics="Logistics &amp; 3PL,Document Extraction,Supply Chain,TMS Automation" data-article-date="2026-10-28">
+        <div>
+          <a class="news-card-thumb" href="/news/freight-quote-bol-triage/" target="_blank">
+            <img src="/images/news/freight-bol-pipeline.svg?v=2" alt="3PL freight quote and bill-of-lading automated triage pipeline diagram" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Practical Case · Logistics</span>
+            <span class="news-date"><time datetime="2026-10-28">Oct 28, 2026</time> · Supply Chain &amp; 3PL</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/freight-quote-bol-triage/" target="_blank">Automated freight quote &amp; bill-of-lading triage in high-volume 3PL inboxes</a></h3>
+          <p>Large freight brokers and 3PLs parse unstructured shipper emails, PDF rate confirmations, and bills of lading directly into TMS fields—cutting manual quote-to-booking keying from minutes to seconds while routing exceptions to human coordinators.</p>
+          <div class="news-takeaway">
+            <strong>Operator takeaway:</strong> AI does not replace the logistics coordinator—it eliminates repetitive PDF data entry so bilingual coordinators can focus on carrier exceptions, cold-storage appointments, and detention disputes.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="freight-quote-bol-triage" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="freight-quote-bol-triage" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="freight-quote-bol-triage">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: C.H. Robinson &amp; 3PL Field Notes</span>
+            <a href="/news/freight-quote-bol-triage/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. Engineering Practice: Anthropic Building Effective Agents -->
+      <article id="brief-effective-agents" class="news-card" data-curation-item data-news-category="practices" data-article-slug="workflows-vs-autonomous-agents" data-article-title="Workflows vs. Autonomous Agents: why simple composable patterns win in production" data-article-topics="Agent Workflows,Production Architecture,Anthropic Engineering,Prompt Chaining" data-article-date="2026-10-25">
+        <div>
+          <a class="news-card-thumb" href="/news/workflows-vs-autonomous-agents/" target="_blank">
+            <img src="/images/news/effective-agents-hero.jpg" alt="Extracted cover illustration from Anthropic Engineering's Building Effective Agents guide" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Engineering Practice</span>
+            <span class="news-date"><time datetime="2026-10-25">Oct 25, 2026</time> · Architecture</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/workflows-vs-autonomous-agents/" target="_blank">Workflows vs. Autonomous Agents: why simple composable patterns win in production</a></h3>
+          <p>Production engineering teams consistently find that successful enterprise deployments avoid heavy, opaque agent frameworks and instead build deterministic code workflows using five composable patterns: prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizers.</p>
+          <div class="news-takeaway">
+            <strong>CTO takeaway:</strong> When vetting senior AI engineers, test whether they reach for clean control loops and deterministic tool schemas before spinning up unconstrained multi-agent loops.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="workflows-vs-autonomous-agents" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="workflows-vs-autonomous-agents" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="workflows-vs-autonomous-agents">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Anthropic Engineering</span>
+            <a href="/news/workflows-vs-autonomous-agents/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Practical Case: AP & Three-Way Matching -->
+      <article id="brief-ap-matching" class="news-card" data-curation-item data-news-category="cases" data-article-slug="vision-llm-ap-three-way-matching" data-article-title="Vision-LLM extraction for multi-page vendor invoices and three-way PO matching" data-article-topics="AP &amp; ERP Controls,Three-Way Matching,Vision LLMs,NetSuite &amp; QuickBooks" data-article-date="2026-10-22">
+        <div>
+          <a class="news-card-thumb" href="/news/vision-llm-ap-three-way-matching/" target="_blank">
+            <img src="/images/news/ap-three-way-match.svg?v=2" alt="Automated three-way match workflow between Purchase Order, Warehouse Receipt, and Vendor Invoice" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Practical Case · Finance</span>
+            <span class="news-date"><time datetime="2026-10-22">Oct 22, 2026</time> · AP &amp; ERP Controls</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/vision-llm-ap-three-way-matching/" target="_blank">Vision-LLM extraction for multi-page vendor invoices and three-way PO matching</a></h3>
+          <p>Distribution and wholesale finance teams are pairing multimodal document models with NetSuite and QuickBooks to extract line-item SKUs, unit prices, and freight surcharges from non-standard vendor PDFs, automatically flagging price or quantity variances against warehouse receiving logs.</p>
+          <div class="news-takeaway">
+            <strong>Controller takeaway:</strong> Automated OCR+LLM extraction handles the first pass of voucher creation, while your AP specialist resolves the 15–20% of invoices with landed-cost discrepancies, short shipments, or damaged goods.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="vision-llm-ap-three-way-matching" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="vision-llm-ap-three-way-matching" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="vision-llm-ap-three-way-matching">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Ramp Engineering &amp; AP Benchmarks</span>
+            <a href="/news/vision-llm-ap-three-way-matching/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Engineering Practice: Contextual Retrieval -->
+      <article id="brief-contextual-rag" class="news-card" data-curation-item data-news-category="practices" data-article-slug="contextual-retrieval-hybrid-rag" data-article-title="Contextual Retrieval + BM25 + Reranking cuts RAG retrieval failures by 67%" data-article-topics="RAG &amp; Search,Contextual Retrieval,BM25 &amp; Reranking,Anthropic Research" data-article-date="2026-10-19">
+        <div>
+          <a class="news-card-thumb" href="/news/contextual-retrieval-hybrid-rag/" target="_blank">
+            <img src="/images/news/contextual-retrieval-diagram.png" alt="Extracted Contextual Retrieval architecture diagram combining Contextual Embeddings, BM25, and Reranking" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Engineering Practice</span>
+            <span class="news-date"><time datetime="2026-10-19">Oct 19, 2026</time> · RAG &amp; Search</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/contextual-retrieval-hybrid-rag/" target="_blank">Contextual Retrieval + BM25 + Reranking cuts RAG retrieval failures by 67%</a></h3>
+          <p>Naive vector chunking strips crucial context from financial tables, contracts, and technical docs (e.g., losing which vendor or quarter a paragraph refers to). Prepending chunk-specific context at indexing time and combining dense embeddings with BM25 lexical search and a cross-encoder reranker dramatically improves accuracy.</p>
+          <div class="news-takeaway">
+            <strong>CTO takeaway:</strong> This is a core production test we run with AI engineering candidates—diagnosing retrieval misses when user queries include exact SKU codes, part numbers, or legal clauses.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="contextual-retrieval-hybrid-rag" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="contextual-retrieval-hybrid-rag" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="contextual-retrieval-hybrid-rag">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Anthropic Research</span>
+            <a href="/news/contextual-retrieval-hybrid-rag/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. Model Release: Schema-Enforced Structured Outputs -->
+      <article id="brief-structured-outputs" class="news-card" data-curation-item data-news-category="models" data-article-slug="schema-enforced-structured-outputs" data-article-title="Constrained decoding and 100% JSON-Schema compliance in frontier models" data-article-topics="Structured Outputs,Constrained Decoding,JSON Schema,OpenAI &amp; Frontier APIs" data-article-date="2026-10-15">
+        <div>
+          <a class="news-card-thumb" href="/news/schema-enforced-structured-outputs/" target="_blank">
+            <img src="/images/news/structured-outputs-cfg.svg?v=2" alt="Context-free grammar constrained decoding architecture diagram" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Model Capability</span>
+            <span class="news-date"><time datetime="2026-10-15">Oct 15, 2026</time> · Production APIs</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/schema-enforced-structured-outputs/" target="_blank">Constrained decoding and 100% JSON-Schema compliance in frontier models</a></h3>
+          <p>Modern frontier APIs from OpenAI, Anthropic, and Google now enforce strict context-free grammars during token sampling, guaranteeing that model outputs match Pydantic or Zod schemas without malformed JSON, missing required keys, or hallucinated enum values.</p>
+          <div class="news-takeaway">
+            <strong>Engineering takeaway:</strong> Enables reliable integration between probabilistic LLMs and strict ERP/SQL backends—essential for automated ledger coding, customs tariff classification, and tool calling.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="schema-enforced-structured-outputs" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="schema-enforced-structured-outputs" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="schema-enforced-structured-outputs">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: OpenAI Platform &amp; Anthropic Docs</span>
+            <a href="/news/schema-enforced-structured-outputs/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Startups & Tooling: Eval & Observability Stack -->
+      <article id="brief-eval-harnesses" class="news-card" data-curation-item data-news-category="startups" data-article-slug="cicd-llm-evaluation-harnesses" data-article-title="The rise of CI/CD evaluation harnesses: Braintrust, LangSmith, Arize Phoenix &amp; Promptfoo" data-article-topics="LLM Evals &amp; CI/CD,Developer Tooling,Promptfoo &amp; Braintrust,LLM-as-a-Judge" data-article-date="2026-10-12">
+        <div>
+          <a class="news-card-thumb" href="/news/cicd-llm-evaluation-harnesses/" target="_blank">
+            <img src="/images/news/eval-harnesses-hero.jpg" alt="Extracted screenshot of Promptfoo evaluation matrix comparing prompts and assertions" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Startups &amp; Tooling</span>
+            <span class="news-date"><time datetime="2026-10-12">Oct 12, 2026</time> · LLM Ops &amp; Evals</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/cicd-llm-evaluation-harnesses/" target="_blank">The rise of CI/CD evaluation harnesses: Braintrust, LangSmith, Arize Phoenix &amp; Promptfoo</a></h3>
+          <p>A new tier of developer tooling startups has replaced "vibe-check" prompt tweaking with automated regression suites. Engineering teams now gate pull requests on golden dataset scores—measuring faithfulness, latency p95, token cost per run, and tool-call precision before deploying model updates.</p>
+          <div class="news-takeaway">
+            <strong>CTO takeaway:</strong> Every senior AI engineer should know how to build an offline eval dataset from production traces and run deterministic + LLM-as-a-judge graders in CI.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="cicd-llm-evaluation-harnesses" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="cicd-llm-evaluation-harnesses" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="cicd-llm-evaluation-harnesses">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Promptfoo &amp; Hamel Husain</span>
+            <a href="/news/cicd-llm-evaluation-harnesses/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. Practical Case: AR Deductions & Chargebacks -->
+      <article id="brief-ar-deductions" class="news-card" data-curation-item data-news-category="cases" data-article-slug="wholesale-ar-remittance-deductions" data-article-title="Automating retail remittance advice parsing and short-pay deduction packets" data-article-topics="AR &amp; Collections,Wholesale Distribution,Deduction Recovery,Document Extraction" data-article-date="2026-10-08">
+        <div>
+          <a class="news-card-thumb" href="/news/wholesale-ar-remittance-deductions/" target="_blank">
+            <img src="/images/news/ar-deductions-workflow.svg?v=2" alt="Wholesale AR remittance matching and short-pay dispute packet workflow diagram" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Practical Case · Wholesale</span>
+            <span class="news-date"><time datetime="2026-10-08">Oct 8, 2026</time> · AR &amp; Collections</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/wholesale-ar-remittance-deductions/" target="_blank">Automating retail remittance advice parsing and short-pay deduction packets</a></h3>
+          <p>Food, beverage, and CPG distributors selling into national grocery chains face thousands of short-paid invoices each month due to promotional allowances, shortage claims, and compliance chargebacks. Teams are using document agents to match remittance portals against signed PODs and bills of lading.</p>
+          <div class="news-takeaway">
+            <strong>Controller takeaway:</strong> Pairing an AR specialist with automated remittance parsing recovers invalid customer deductions weeks faster before dispute windows expire.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="wholesale-ar-remittance-deductions" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="wholesale-ar-remittance-deductions" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="wholesale-ar-remittance-deductions">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Wholesale Credit/AR Benchmark</span>
+            <a href="/news/wholesale-ar-remittance-deductions/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Model Release: Reasoning Models vs. Low-Latency Workhorses -->
+      <article id="brief-model-routing" class="news-card" data-curation-item data-news-category="models" data-article-slug="two-tier-reasoning-model-routing" data-article-title="Two-tier model routing: pairing reasoning models with fast small models" data-article-topics="Model Routing,Cost &amp; Latency,Prompt Caching,Reasoning Models" data-article-date="2026-10-04">
+        <div>
+          <a class="news-card-thumb" href="/news/two-tier-reasoning-model-routing/" target="_blank">
+            <img src="/images/news/model-routing-benchmarks.jpg" alt="Extracted LLM benchmark chart from Simon Willison's annual review" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Model Releases</span>
+            <span class="news-date"><time datetime="2026-10-04">Oct 4, 2026</time> · Cost &amp; Latency</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/two-tier-reasoning-model-routing/" target="_blank">Two-tier model routing: pairing reasoning models with fast small models</a></h3>
+          <p>Across the latest Claude, GPT, Gemini, and open-weight Qwen/Llama releases, production architectures have converged on model routing: using reasoning models for complex multi-step planning, tax/contract edge cases, and synthetic data generation, while routing 85%+ of high-throughput classification to distilled small models.</p>
+          <div class="news-takeaway">
+            <strong>Engineering takeaway:</strong> Model routing and prompt caching routinely cut production inference bills by 60–80% while keeping sub-second UI responsiveness.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="two-tier-reasoning-model-routing" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="two-tier-reasoning-model-routing" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="two-tier-reasoning-model-routing">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Simon Willison &amp; Applied LLMs</span>
+            <a href="/news/two-tier-reasoning-model-routing/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. Startups & Tooling: Vertical AI in Supply Chain & Customs -->
+      <article id="brief-customs-ai" class="news-card" data-curation-item data-news-category="startups" data-article-slug="vertical-ai-customs-freight-audit" data-article-title="Vertical AI startups targeting customs brokerage, HTS classification, and freight audit" data-article-topics="Cross-Border Customs,Supply Chain Startups,HTS Classification,Freight Audit" data-article-date="2026-09-29">
+        <div>
+          <a class="news-card-thumb" href="/news/vertical-ai-customs-freight-audit/" target="_blank">
+            <img src="/images/news/customs-hts-audit.svg?v=2" alt="Cross-border customs pre-arrival audit and HTS tariff verification workflow" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Startups &amp; Tooling</span>
+            <span class="news-date"><time datetime="2026-09-29">Sep 29, 2026</time> · Supply Chain AI</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/vertical-ai-customs-freight-audit/" target="_blank">Vertical AI startups targeting customs brokerage, HTS classification, and freight audit</a></h3>
+          <p>A wave of seed and Series A startups is building specialized copilot workflows for importers and freight forwarders—automating Harmonized Tariff Schedule (HTS) lookups, commercial invoice validation, phytosanitary document checks, and carrier accessorial auditing.</p>
+          <div class="news-takeaway">
+            <strong>Operator takeaway:</strong> Software tools accelerate document prep, but cross-border compliance still requires experienced human operators who understand customs holds, cold-chain rules, and carrier contracts.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="vertical-ai-customs-freight-audit" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="vertical-ai-customs-freight-audit" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="vertical-ai-customs-freight-audit">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Cross-Border Freight Tech Briefings</span>
+            <a href="/news/vertical-ai-customs-freight-audit/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10. Engineering Practice: Applied LLMs in Production -->
+      <article id="brief-applied-llms" class="news-card" data-curation-item data-news-category="practices" data-article-slug="applied-llms-production-lessons" data-article-title="What we learned from a year of building with LLMs (Applied Engineering Survey)" data-article-topics="Production Engineering,LLM Evals &amp; CI/CD,RAG &amp; Search,Applied LLMs" data-article-date="2026-09-24">
+        <div>
+          <a class="news-card-thumb" href="/news/applied-llms-production-lessons/" target="_blank">
+            <img src="/images/news/applied-llms-hero.png" alt="Extracted cover graphic from What We Learned from a Year of Building with LLMs" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Engineering Practice</span>
+            <span class="news-date"><time datetime="2026-09-24">Sep 24, 2026</time> · Field Guide</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/applied-llms-production-lessons/" target="_blank">What we learned from a year of building with LLMs (Applied Engineering Survey)</a></h3>
+          <p>Co-authored by six seasoned AI engineers and practitioners (Eugene Yan, Bryan Bischof, Charles Frye, Hamel Husain, Jason Liu, and Shreya Shankar), this tactical handbook covers sampling, evaluation loops, retrieval optimization, fine-tuning vs. prompting, and defensive guardrails in production.</p>
+          <div class="news-takeaway">
+            <strong>CTO takeaway:</strong> One of the best benchmarks for senior AI engineering maturity—separating engineers who iterate systematically on data and evals from those who guess at prompts.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="applied-llms-production-lessons" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="applied-llms-production-lessons" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="applied-llms-production-lessons">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Applied LLMs Consortium</span>
+            <a href="/news/applied-llms-production-lessons/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11. Startups & Tooling: Model Context Protocol (MCP) -->
+      <article id="brief-mcp" class="news-card" data-curation-item data-news-category="startups" data-article-slug="model-context-protocol-enterprise" data-article-title="Model Context Protocol (MCP) standardizes how AI systems connect to enterprise data" data-article-topics="Model Context Protocol,Enterprise Integration,Security &amp; Permissions,Open Standards" data-article-date="2026-09-18">
+        <div>
+          <a class="news-card-thumb" href="/news/model-context-protocol-enterprise/" target="_blank">
+            <img src="/images/news/mcp-diagram.png" alt="Extracted official Model Context Protocol (MCP) client-server architecture diagram" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Startups &amp; Ecosystem</span>
+            <span class="news-date"><time datetime="2026-09-18">Sep 18, 2026</time> · Open Standards</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/model-context-protocol-enterprise/" target="_blank">Model Context Protocol (MCP) standardizes how AI systems connect to enterprise data</a></h3>
+          <p>Instead of writing brittle one-off connectors for every database, ERP, Slack workspace, and Git repository, open-source MCP servers provide a uniform protocol for exposing read/write tools, resources, and permission boundaries to LLM applications.</p>
+          <div class="news-takeaway">
+            <strong>Engineering takeaway:</strong> Standardizes tool definitions and least-privilege access controls when connecting internal company systems to AI assistants.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="model-context-protocol-enterprise" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="model-context-protocol-enterprise" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="model-context-protocol-enterprise">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Model Context Protocol Spec</span>
+            <a href="/news/model-context-protocol-enterprise/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12. Practical Case: Customer Support & Order Status Automation -->
+      <article id="brief-order-status" class="news-card" data-curation-item data-news-category="cases" data-article-slug="read-only-erp-customer-operations" data-article-title="Read-only ERP tool calling for instant 'Where is my order?' and invoice copy requests" data-article-topics="Security &amp; Permissions,Customer Operations,ERP Integration,B2B Distribution" data-article-date="2026-09-14">
+        <div>
+          <a class="news-card-thumb" href="/news/read-only-erp-customer-operations/" target="_blank">
+            <img src="/images/news/readonly-erp-security.svg?v=2" alt="Three-layer security isolation diagram for read-only ERP customer support AI" loading="lazy">
+          </a>
+          <div class="news-meta">
+            <span class="news-badge">Practical Case · Operations</span>
+            <span class="news-date"><time datetime="2026-09-14">Sep 14, 2026</time> · Customer Operations</span>
+          </div>
+          <h3><a class="news-card-title-link" href="/news/read-only-erp-customer-operations/" target="_blank">Read-only ERP tool calling for instant “Where is my order?” and invoice copy requests</a></h3>
+          <p>B2B distributors and SaaS companies are connecting customer support inboxes to read-only SQL/ERP endpoints so AI triage agents can draft accurate replies with live tracking numbers, BOL attachments, and open invoice balances—held in draft for human approval before sending.</p>
+          <div class="news-takeaway">
+            <strong>Security takeaway:</strong> Enforcing read-only database views and human-in-the-loop approval prevents prompt-injection risks while cutting response times.
+          </div>
+        </div>
+        <div>
+          <div class="grade-bar">
+            <div class="grade-actions">
+              <button type="button" class="grade-btn" data-grade="like" data-slug="read-only-erp-customer-operations" aria-pressed="false" aria-label="Like this article">👍 Like</button>
+              <button type="button" class="grade-btn" data-grade="dislike" data-slug="read-only-erp-customer-operations" aria-pressed="false" aria-label="Dislike this article">👎 Not for me</button>
+            </div>
+            <span class="relevance-pill" data-relevance-status="read-only-erp-customer-operations">Unrated</span>
+          </div>
+          <div class="news-footer">
+            <span class="news-source">Source: Production AI Security Guide</span>
+            <a href="/news/read-only-erp-customer-operations/" target="_blank" style="font-weight: 600;">Read full article ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Live AI Engineering Wire & Curated Sources (All On-Site) -->
+  <section class="band-surface section">
+    <div class="wrap">
+      <div class="grid-2">
+        <div class="live-feed-box">
+          <div class="news-meta" style="margin-bottom: 12px;">
+            <span class="news-badge">Live Community Wire</span>
+            <span id="live-ai-wire-status">Ranked by your learned bot preferences</span>
+          </div>
+          <h2>Trending in AI &amp; LLM Engineering</h2>
+          <p style="color: var(--text-secondary); font-size: 15px; margin-bottom: 16px;">Top-voted technical discussions, open-source releases, and production post-mortems tracked from the engineering community—automatically scored and sorted using your Liked/Disliked topic weights:</p>
+          <ul id="live-ai-wire" class="live-feed-list">
+            <li style="display: block;">
+              <details class="news-expand" style="border-top: none; padding-top: 0; margin-top: 0;">
+                <summary style="display: flex; justify-content: space-between; width: 100%;"><span style="color: var(--text-primary); font-weight: 600;">Building Effective Agents: Composable patterns for production LLMs (Oct 25, 2026)</span></summary>
+                <div class="news-expanded-body">
+                  <p>Details why production engineering teams favor simple, deterministic control flows (prompt chaining, routing, orchestrator-workers, and evaluator-optimizers) over complex autonomous agent frameworks.</p>
+                  <p><a href="/news/workflows-vs-autonomous-agents/" target="_blank" style="font-weight: 600;">Open complete article with extracted diagrams in new page ↗</a></p>
+                  <span class="source-citation">Named Source: Anthropic Engineering · Published Oct 25, 2026</span>
+                </div>
+              </details>
+            </li>
+            <li style="display: block;">
+              <details class="news-expand" style="border-top: none; padding-top: 0; margin-top: 0;">
+                <summary style="display: flex; justify-content: space-between; width: 100%;"><span style="color: var(--text-primary); font-weight: 600;">What We Learned from a Year of Building with LLMs (Sep 24, 2026)</span></summary>
+                <div class="news-expanded-body">
+                  <p>Comprehensive practitioner survey covering evaluation harnesses, hybrid RAG retrieval, structured outputs, latency/cost routing, and why inspecting raw production data beats blind fine-tuning.</p>
+                  <p><a href="/news/applied-llms-production-lessons/" target="_blank" style="font-weight: 600;">Open complete article with extracted diagrams in new page ↗</a></p>
+                  <span class="source-citation">Named Source: Applied LLMs Consortium · Published Sep 24, 2026</span>
+                </div>
+              </details>
+            </li>
+            <li style="display: block;">
+              <details class="news-expand" style="border-top: none; padding-top: 0; margin-top: 0;">
+                <summary style="display: flex; justify-content: space-between; width: 100%;"><span style="color: var(--text-primary); font-weight: 600;">Structured Outputs &amp; Grammar-Constrained Decoding in Production APIs (Oct 15, 2026)</span></summary>
+                <div class="news-expanded-body">
+                  <p>How context-free grammar token masking guarantees 100% adherence to JSON Schemas—allowing LLM extractors to feed typed ERP, SQL, and accounting workflows safely.</p>
+                  <p><a href="/news/schema-enforced-structured-outputs/" target="_blank" style="font-weight: 600;">Open complete article with extracted diagrams in new page ↗</a></p>
+                  <span class="source-citation">Named Source: OpenAI Platform Engineering · Published Oct 15, 2026</span>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </div>
+
+        <div class="live-feed-box">
+          <div class="news-meta" style="margin-bottom: 12px;">
+            <span class="news-badge">Curated Publications</span>
+            <span>Sources We Track &amp; Cite</span>
+          </div>
+          <h2>Primary publications behind our briefings</h2>
+          <p style="color: var(--text-secondary); font-size: 15px; margin-bottom: 16px;">We synthesize research and production post-mortems from these practitioner sources to keep our briefings and candidate vetting assessments current:</p>
+          <ul class="live-feed-list">
+            <li style="display: block;">
+              <details class="news-expand" style="border-top: none; padding-top: 0; margin-top: 0;">
+                <summary style="display: flex; justify-content: space-between; width: 100%;"><span style="color: var(--text-primary); font-weight: 600;">Anthropic Engineering &amp; Research</span></summary>
+                <div class="news-expanded-body">
+                  <p>Primary technical benchmarks on Contextual Retrieval, composable agent workflows, prompt caching, and Model Context Protocol (MCP) specifications.</p>
+                  <span class="source-citation">Publication cited: Anthropic Engineering</span>
+                </div>
+              </details>
+            </li>
+            <li style="display: block;">
+              <details class="news-expand" style="border-top: none; padding-top: 0; margin-top: 0;">
+                <summary style="display: flex; justify-content: space-between; width: 100%;"><span style="color: var(--text-primary); font-weight: 600;">OpenAI Developer Cookbook &amp; Platform Guides</span></summary>
+                <div class="news-expanded-body">
+                  <p>Implementation references for grammar-constrained Structured Outputs, tool-calling schemas, latency optimization, and automated grading rubrics.</p>
+                  <span class="source-citation">Publication cited: OpenAI Developer Cookbook</span>
+                </div>
+              </details>
+            </li>
+            <li style="display: block;">
+              <details class="news-expand" style="border-top: none; padding-top: 0; margin-top: 0;">
+                <summary style="display: flex; justify-content: space-between; width: 100%;"><span style="color: var(--text-primary); font-weight: 600;">Simon Willison’s Weblog &amp; Applied LLM Practitioners</span></summary>
+                <div class="news-expanded-body">
+                  <p>Independent benchmarks on open-weight and frontier model releases, prompt injection defenses, data extraction workflows, and evaluation-driven development by Simon Willison, Eugene Yan, Hamel Husain, and Chip Huyen.</p>
+                  <span class="source-citation">Publications cited: Simon Willison’s Weblog, EugeneYan.com, Hamel.dev &amp; Latent Space</span>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="band-subtle section">
+    <div class="wrap">
+      <p class="eyebrow">Turn AI &amp; Operational Plans Into Execution</p>
+      <h2>Hiring a senior AI engineer or a bilingual finance &amp; operations specialist?</h2>
+      <p class="section-intro">Send us your role brief and receive a written quote by email—no sales call required.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/request-a-quote/">Request a written quote</a>
+        <a class="btn btn-secondary" href="/hire-ai-engineers/">Hire Senior AI Engineers</a>
+        <a class="btn btn-secondary" href="/finance-accounting/">Hire Finance &amp; Accounting Staff</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="brandline"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 40 40"><rect x="4" y="4" width="21" height="21" fill="none" stroke="#FFFFFF" stroke-width="3.5"/><rect x="15" y="15" width="21" height="21" fill="none" stroke="#FFFFFF" stroke-width="3.5"/><rect x="15" y="15" width="10" height="10" fill="#F0A81C"/></svg>© 2026 Scalar Teams, British Columbia, Canada</span>
+    <ul class="footer-links" aria-label="Footer">
+      <li><a href="/">Home</a></li>
+      <li><a href="/finance-accounting/">Finance &amp; accounting</a></li>
+      <li><a href="/hire-ai-engineers/">AI engineers</a></li>
+      <li><a href="/news/">AI briefing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/request-a-quote/">Request a quote</a></li>
+      <li><a href="mailto:hello@scalarteams.com">hello@scalarteams.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="/site.js?v=5" defer></script>
+</body>
+</html>
