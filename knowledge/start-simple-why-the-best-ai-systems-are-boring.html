@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start simple: why the best AI systems are boring | Scalar Teams Knowledge</title>
+<meta name="description" content="Anthropic’s engineering guidance: the best AI systems use simple, composable patterns, not complex agents. What that means for your operation.">
+<link rel="canonical" href="https://scalarteams.com/knowledge/start-simple-why-the-best-ai-systems-are-boring.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Scalar Teams">
+<meta property="og:url" content="https://scalarteams.com/knowledge/start-simple-why-the-best-ai-systems-are-boring.html">
+<meta property="og:title" content="Start simple: why the best AI systems are boring | Scalar Teams Knowledge">
+<meta property="og:description" content="Anthropic’s engineering guidance: the best AI systems use simple, composable patterns, not complex agents. What that means for your operation.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Start simple: why the best AI systems are boring | Scalar Teams Knowledge">
+<meta name="twitter:description" content="Anthropic’s engineering guidance: the best AI systems use simple, composable patterns, not complex agents. What that means for your operation.">
+<meta name="theme-color" content="#1E2422">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&display=swap">
+<link rel="stylesheet" href="/styles.css?v=9">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Start simple: why the best AI systems are boring",
+  "description": "Anthropic’s engineering guidance: the best AI systems use simple, composable patterns, not complex agents. What that means for your operation.",
+  "url": "https://scalarteams.com/knowledge/start-simple-why-the-best-ai-systems-are-boring.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://scalarteams.com/knowledge/start-simple-why-the-best-ai-systems-are-boring.html"
+  },
+  "datePublished": "2026-10-31",
+  "dateModified": "2026-10-31",
+  "inLanguage": "en",
+  "wordCount": 983,
+  "author": {
+    "@type": "Organization",
+    "name": "Scalar Teams",
+    "url": "https://scalarteams.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scalar Teams",
+    "url": "https://scalarteams.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://scalarteams.com/favicon.svg"
+    }
+  },
+  "isPartOf": {
+    "@type": "WebPage",
+    "@id": "https://scalarteams.com/knowledge/",
+    "name": "Knowledge"
+  },
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Anthropic"
+      },
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Erik S."
+        },
+        {
+          "@type": "Person",
+          "name": "Barry Zhang"
+        }
+      ],
+      "datePublished": "Dec 19, 2024"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Scalar Teams home">
+      <svg aria-hidden="true" width="30" height="30" viewBox="0 0 40 40"><rect x="4" y="4" width="21" height="21" fill="none" stroke="#1E2422" stroke-width="3.5"/><rect x="15" y="15" width="21" height="21" fill="none" stroke="#1E2422" stroke-width="3.5"/><rect x="15" y="15" width="10" height="10" fill="#F0A81C"/></svg>
+      <span class="brand-name">Scalar Teams</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="nav" aria-label="Main">
+      <a class="nav-link" href="/#how">How it works</a>
+      <a class="nav-link" href="/#roles">What we automate</a>
+      <a class="nav-link" href="/finance-accounting/">Finance &amp; accounting</a>
+      <a class="nav-link" href="/hire-ai-engineers/">AI engineers</a>
+      <a class="nav-link" href="/news/">AI briefing</a>
+      <a class="nav-link" href="/knowledge/" aria-current="page">Knowledge</a>
+      <a class="nav-link" href="/about/">About</a>
+      <a class="nav-cta" href="/request-a-quote/">Request a flow audit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <article class="article-wrap">
+    <a class="article-breadcrumb" href="/knowledge/">← Back to Knowledge</a>
+
+    <header class="article-header">
+      <div class="news-meta">
+        <span class="news-badge">Engineering guidance</span>
+        <span class="news-date">5 min read</span>
+      </div>
+      <h1>Start simple: why the best AI systems are boring</h1>
+      <p class="article-byline">Published <time datetime="2026-10-31">October 31, 2026</time> by Scalar Teams</p>
+      <p class="article-lead">There is a widespread assumption that serious AI means autonomous agents making decisions on their own. The people who build these systems for a living say otherwise. In December 2024, Anthropic published engineering guidance based on its work with teams building AI systems across industries, and its central message is unglamorous: keep it simple, and add complexity only when you can prove you need it.</p>
+    </header>
+
+    <div class="article-body">
+<h2>Two kinds of system</h2>
+<p>Anthropic’s post, “Building effective agents,” begins by separating two things that often get the same label. A <strong>workflow</strong> is a system where a language model and tools are orchestrated through code paths the developer wrote in advance. The model does a defined job at a defined step. An <strong>agent</strong> is a system where the model directs its own process and decides which tools to use and in what order.</p>
+<p>The authors’ advice on choosing between them is direct. Workflows suit well-defined tasks where predictability matters. Agents are the better option when flexibility and model-driven decision-making are needed at scale, and when you can accept higher cost and latency in exchange. For most operational work in a mid-sized company, the first description fits far more often than the second.</p>
+
+<h2>The core recommendation</h2>
+<p>The post recommends “finding the simplest solution possible, and only increasing complexity when needed.” The reasoning is practical rather than philosophical. Agentic systems trade latency and cost for better performance on hard problems, and that trade only makes sense when the problem is genuinely hard. The authors say many applications need nothing more than a single well-constructed call to a model, with good examples and relevant documents retrieved for it.</p>
+<p>They are also cautious about frameworks, the software packages that promise to make agent-building easy. Frameworks help teams start quickly, but their extra layers can hide the actual prompts and responses underneath, which makes problems harder to diagnose. Their suggestion is to start with the model’s API directly and, if a framework is adopted later, to understand the code under it before relying on it.</p>
+
+<h2>Five boring patterns that work</h2>
+<p>Most of the post is a catalogue of workflow patterns the authors have seen succeed. In plain terms:</p>
+<ul>
+  <li><strong>Prompt chaining.</strong> Break a task into a sequence of steps, each handled by a model call, with a programmatic check between steps. Example: extract the fields from a supplier invoice, then check the totals add up, then draft the posting.</li>
+  <li><strong>Routing.</strong> Classify an input first, then send it to the specialized handler for that type. Example: sort incoming emails into orders, claims and general enquiries before anything else happens.</li>
+  <li><strong>Parallelization.</strong> Run independent subtasks at the same time, or run the same task several times and compare the answers. Useful when you want a second opinion on a high-stakes extraction.</li>
+  <li><strong>Orchestrator and workers.</strong> One model breaks a job into parts, hands the parts to workers, and assembles the results. Reserved for tasks where the parts cannot be known in advance.</li>
+  <li><strong>Evaluator and optimizer.</strong> One model produces a draft, another critiques it, and they loop until the draft passes. Useful where there are clear criteria for “good,” such as a translation or a formatted report.</li>
+</ul>
+<p>Notice what these have in common. Each has a shape you can draw on a whiteboard, a place where a human or a rule can check the work, and a failure mode you can name. That is what “boring” means here, and it is a compliment.</p>
+
+<h2>When an agent is warranted</h2>
+<p>The authors do not dismiss agents. They describe them as appropriate for open-ended problems where the number of steps cannot be predicted and a fixed path cannot be written, and they stress that agents need the ability to get feedback from their environment, such as a test result or a tool’s output, at each step. The two examples they give are customer support, where the conversation flow is combined with tools that fetch order history and take actions like issuing refunds, and software coding, where automated tests give the agent an objective signal about whether its work is correct. Both examples share a feature: success is checkable.</p>
+<p>For agents, the post offers three principles. Keep the design simple. Make the agent’s planning steps visible so people can see what it intends to do. And invest heavily in the interface between the agent and its tools, documenting and testing each tool as carefully as you would for a new employee.</p>
+
+<h2>A note on timing</h2>
+<p>The post is dated December 19, 2024, and Anthropic itself now notes that much of the tooling has changed since then and points readers to newer documentation. The specific tools will keep changing. The argument about simplicity is about engineering discipline, and it has not aged.</p>
+
+<h2>How we apply this</h2>
+<p>Our method borrows from the Toyota Production System, so we read research like this as a checklist for practice rather than a forecast. In order, the steps are: go and see, map, measure waste, prioritize, build small, standardize and review.</p>
+<p>Anthropic’s guidance and the Toyota method agree on the same point from different directions: do not automate what you do not yet understand. We go and see the task, map the real sequence of steps, and measure where the waiting and rework are. That map usually turns out to be a workflow in Anthropic’s sense, a fixed path with a few decision points, and we build it that way: one step at a time, a check between steps, a person in the loop wherever money moves or a customer is affected.</p>
+<p>We build small, which here means a single model call before a chain and a chain before anything autonomous. We standardize by writing down the prompts, the checks and the escalation rules so the system is inspectable by your team, not just by us. And we review the failure cases on a schedule, because the boring system that is watched outperforms the clever one that is not.</p>
+    </div>
+
+    <aside class="article-sources" aria-labelledby="sources-heading">
+      <h2 id="sources-heading">Sources</h2>
+      <ol>
+      <li>Anthropic — “Building effective agents” — Erik S. and Barry Zhang — Published Dec 19, 2024 — <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/engineering/building-effective-agents</a></li>
+      </ol>
+      <p class="src-note">Secondary sources are used only for supporting facts. Dates are shown as they appear on each page; where a page shows no date, we say so rather than guess.</p>
+    </aside>
+
+    <div class="card article-cta">
+      <p class="eyebrow">Put this to work</p>
+      <h2>Want this applied to one of your processes?</h2>
+      <p>Tell us where your team loses the most time. You get a written quote within one business day, by email, with no sales call required.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/request-a-quote/">Request a written quote</a>
+        <a class="btn btn-secondary" href="/knowledge/">More from Knowledge</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="brandline"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 40 40"><rect x="4" y="4" width="21" height="21" fill="none" stroke="#FFFFFF" stroke-width="3.5"/><rect x="15" y="15" width="21" height="21" fill="none" stroke="#FFFFFF" stroke-width="3.5"/><rect x="15" y="15" width="10" height="10" fill="#F0A81C"/></svg>© 2026 Scalar Teams, British Columbia, Canada</span>
+    <ul class="footer-links" aria-label="Footer">
+      <li><a href="/">Home</a></li>
+      <li><a href="/finance-accounting/">Finance &amp; accounting</a></li>
+      <li><a href="/hire-ai-engineers/">AI engineers</a></li>
+      <li><a href="/news/">AI briefing</a></li>
+      <li><a href="/knowledge/">Knowledge</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/request-a-quote/">Request a quote</a></li>
+      <li><a href="mailto:hello@scalarteams.com">hello@scalarteams.com</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="/site.js?v=6" defer></script>
+</body>
+</html>

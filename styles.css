@@ -428,3 +428,21 @@ p{margin:0 0 1em}
   .explainer-fab{right:12px;bottom:12px}
   .footer-links{gap:8px 16px}
 }
+
+/* Knowledge section */
+.article-byline{margin:0 0 18px;font-size:15px;color:var(--muted)}
+.article-body a{color:var(--steel)}
+.article-sources{margin-top:40px;padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.article-sources h2{margin:0 0 12px;font-size:22px}
+.article-sources ol{margin:0 0 14px;padding-left:20px}
+.article-sources li{margin-bottom:10px;font-size:15px;line-height:1.5;color:var(--muted);overflow-wrap:anywhere}
+.article-sources li a{color:var(--steel)}
+.src-note{font-size:14px;color:var(--muted)}
+.article-sources p.src-note{margin:0}
+.article-cta{margin-top:36px}
+.article-cta h2{font-size:24px;margin:0 0 10px;max-width:none}
+.article-cta p{color:var(--muted);margin:0 0 20px}
+.article-cta .eyebrow{margin-bottom:10px}
+.k-grid{margin-bottom:24px}
+.k-card h3{font-size:22px}
+.k-read{font-weight:600;align-self:flex-start}

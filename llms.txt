@@ -22,6 +22,7 @@ Owner-led distributors, wholesalers, importers, 3PLs and couriers with roughly 1
 - [Finance and accounting](https://scalarteams.com/finance-accounting/): managed finance offer, finance and logistics roles, vetting, internal controls.
 - [Hire AI engineers](https://scalarteams.com/hire-ai-engineers/): roles, fraud-proof vetting, production LLM experience, time-zone overlap.
 - [Practical AI briefing](https://scalarteams.com/news/): briefings on AI in distribution, freight and finance operations, with a curation trainer and explainer chat.
+- [Knowledge](https://scalarteams.com/knowledge/): original articles on how companies implement AI successfully, each citing its sources with publisher and publish date.
 - [About](https://scalarteams.com/about/): founder story, the Ecuador office and the Canada and Latin America talent pool.
 - [Request a flow audit or a quote](https://scalarteams.com/request-a-quote/): the request form.
 

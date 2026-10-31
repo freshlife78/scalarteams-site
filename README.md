@@ -13,6 +13,7 @@ It is a static site served by GitHub Pages. There is no build step. The homepage
 | `hire-ai-engineers/` | Senior AI, ML and data engineers: roles, vetting, time-zone overlap |
 | `about/` | Founder story, the Ecuador office and the talent pool |
 | `news/` | Practical AI briefing: index, 12 articles, curation trainer and explainer chat |
+| `knowledge/` | Knowledge: index plus five sourced articles on how companies implement AI (`knowledge/<slug>.html`) |
 | `request-a-quote/` | The quote form on its own page |
 | `thank-you/` | Optional landing page for a Formspree redirect; not linked (the forms show an inline thank-you instead). Holds the commented-out Google Ads conversion tag |
 | `styles.css` | Shared stylesheet for the inner pages (live palette, Archivo) |

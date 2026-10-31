@@ -987,7 +987,7 @@
     });
   }
 
-  if (document.querySelector('.article-wrap, #news-grid-container')) {
+  if (document.querySelector('.article-wrap[data-curation-item], #news-grid-container')) {
     initExplainerChat();
   }
 })();
