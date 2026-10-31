@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-30T00:00:00Z",
+  "votes": {},
+  "liked_articles": [],
+  "disliked_articles": [],
+  "category_weights": {
+    "Business Case": 0,
+    "Models & Costs": 0,
+    "Engineering": 0,
+    "New Startups": 0
+  },
+  "topic_weights": {}
+}

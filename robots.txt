@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://scalarteams.com/sitemap.xml
